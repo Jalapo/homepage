@@ -67,8 +67,6 @@ html {
   background-image: linear-gradient(to bottom right, #3333ff, #b152e0);
 }
 .top > div {
-  -webkit-animation-name: loadFade;
-          animation-name: loadFade;
   -webkit-animation-duration: 2.5s;
           animation-duration: 2.5s;
   -webkit-animation-delay: 0.3s;
@@ -81,4 +79,33 @@ html {
 .top > div[class=flex-container] {
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
+}
+
+.bubbles {
+  color: transparent;
+  border: 4px solid hsl(280deg, 70%, 40%);
+  border-top: 0px;
+  border-radius: 0rem 0rem 1rem 1rem;
+  transition: transform 2s;
+}
+.bubbles:hover {
+  transform: translateY(20px);
+}
+
+@-webkit-keyframes moveDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20);
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20);
+  }
 }/*# sourceMappingURL=script.css.map */

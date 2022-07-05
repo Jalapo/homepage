@@ -65,7 +65,7 @@ html {
         }
     }
     >div { // slow fade-in animation
-        animation-name: loadFade;
+        // animation-name: loadFade;
         animation-duration: 2.5s;
         animation-delay: 0.3s;
         animation-timing-function: ease-in;
@@ -74,4 +74,20 @@ html {
             animation-delay: 1s;
         }
     }
+}
+
+.bubbles {
+    color: transparent;
+    border: 4px solid $gradient-color;
+    border-top: 0px;
+    border-radius: 0rem 0rem 1rem 1rem;
+    transition: transform 2s;
+    &:hover{
+    transform: translateY(20px);
+    }
+}
+
+@keyframes moveDown {
+    from {transform: translateY(0);}
+    to {transform: translateY(20);}
 }
