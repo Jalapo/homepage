@@ -80,7 +80,7 @@ html {
         }
     }
     >div { // slow fade-in animation
-        // animation-name: loadFade;
+        animation-name: loadFade;
         animation-duration: 2.5s;
         animation-delay: 0.3s;
         animation-timing-function: ease-in;
