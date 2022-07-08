@@ -1,3 +1,11 @@
+@-webkit-keyframes loadFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 @keyframes loadFade {
   from {
     opacity: 0;
@@ -6,12 +14,28 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes showProjects {
+  from {
+    margin-top: -14rem;
+  }
+  to {
+    margin-top: 0rem;
+  }
+}
 @keyframes showProjects {
   from {
     margin-top: -14rem;
   }
   to {
     margin-top: 0rem;
+  }
+}
+@-webkit-keyframes hideProjects {
+  from {
+    margin-top: 0rem;
+  }
+  to {
+    margin-top: -14rem;
   }
 }
 @keyframes hideProjects {
@@ -44,7 +68,8 @@ html .flex-container {
   font-size: 10vw;
   color: transparent;
   background-image: linear-gradient(to right, hsl(240deg, 100%, 40%), white);
-  background-clip: text;
+  -webkit-background-clip: text;
+          background-clip: text;
 }
 .top #subtext {
   font-size: 3rem;
@@ -79,14 +104,20 @@ html .flex-container {
   background-image: linear-gradient(to bottom right, #3333ff, #b152e0);
 }
 .top > div {
-  animation-name: loadFade;
-  animation-duration: 2.5s;
-  animation-delay: 0.3s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: both;
+  -webkit-animation-name: loadFade;
+          animation-name: loadFade;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 .top > div[class=flex-container] {
-  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .projects {
@@ -97,6 +128,11 @@ html .flex-container {
   padding-bottom: 2rem;
   border-radius: 0rem 0rem 1rem 1rem;
   transition: transform 2s;
+  /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
+  &:hover{
+      transform: translateY(20px);
+  }
+  */
 }
 .projects .flex-container {
   justify-content: space-between;
@@ -140,18 +176,19 @@ html .flex-container {
   margin: 0.5rem;
   background-color: black;
 }
-.projects:hover {
-  transform: translateY(20px);
-}
 .projects.unhidden {
-  animation-name: showProjects;
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
+  -webkit-animation-name: showProjects;
+          animation-name: showProjects;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
 .projects.hidden {
-  animation-name: hideProjects;
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
-}
-
-/*# sourceMappingURL=script.css.map */
+  -webkit-animation-name: hideProjects;
+          animation-name: hideProjects;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}/*# sourceMappingURL=script.css.map */

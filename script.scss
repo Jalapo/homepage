@@ -140,9 +140,11 @@ html {
     // border-top: 0px;
     border-radius: 0rem 0rem 1rem 1rem;
     transition: transform 2s;
+    /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
     &:hover{
         transform: translateY(20px);
     }
+    */
     &.unhidden {
         animation-name: showProjects;
         animation-duration: 0.8s;
