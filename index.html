@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="script.css">
+    <script type="text/javascript" src="script.js"></script>
     <title>Homepage</title>
 </head>
 <body>
@@ -12,16 +13,23 @@
         <div class="text" id="name">Javen Porter</div>
         <div class="text" id="subtext">Web Developer</div>
         <div class="flex-container">
-            <button id="projects">Projects</button>
+            <button id="projects" onclick="moveProjects()">Projects</button>
             <button id="git" onclick="window.open(`https://github.com/Jalapo`)">GitHub</button>
         </div>
     </div>
 
     <div class="projects">
         <div class="flex-container">
+            <button id="prev"><</button>
+
             <div class="bubbles">
-                Hello javen
+                <div class="flex-container">
+                    <div class="border"><div class="squ"></div></div>
+                    <div class="border"><div class="squ"></div></div>
+                </div>
             </div>
+
+            <button id="next">></button>
         </div>
     </div>
 </body>

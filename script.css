@@ -14,16 +14,54 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes showProjects {
+  from {
+    margin-top: -14rem;
+  }
+  to {
+    margin-top: 0rem;
+  }
+}
+@keyframes showProjects {
+  from {
+    margin-top: -14rem;
+  }
+  to {
+    margin-top: 0rem;
+  }
+}
+@-webkit-keyframes hideProjects {
+  from {
+    margin-top: 0rem;
+  }
+  to {
+    margin-top: -14rem;
+  }
+}
+@keyframes hideProjects {
+  from {
+    margin-top: 0rem;
+  }
+  to {
+    margin-top: -14rem;
+  }
+}
 html {
   background-color: black;
   color: #DDDDDD;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+html .flex-container {
+  display: flex;
+}
 
 .top {
+  position: relative;
   padding-top: 28vh;
   text-align: center;
+  z-index: 1;
+  background-color: black;
 }
 .top #name {
   font-size: 5rem;
@@ -40,7 +78,6 @@ html {
   margin-bottom: min(2vw, 2rem);
 }
 .top .flex-container {
-  display: flex;
   gap: 1.5rem;
   justify-content: center;
 }
@@ -81,31 +118,73 @@ html {
           animation-delay: 1s;
 }
 
-.bubbles {
-  color: transparent;
-  border: 4px solid hsl(280deg, 70%, 40%);
-  border-top: 0px;
+.projects {
+  position: relative;
+  margin-top: -14rem;
+  z-index: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   border-radius: 0rem 0rem 1rem 1rem;
   transition: transform 2s;
 }
-.bubbles:hover {
+.projects .flex-container {
+  justify-content: space-between;
+}
+.projects .flex-container button {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2.5rem;
+  font-weight: 1000;
+  font-family: serif;
+  color: white;
+  background-color: hsl(240deg, 60%, 55%);
+  border: none;
+  border-radius: 100%;
+  align-self: center;
+  --mg: max(2rem, 5vw);
+}
+.projects .flex-container button#prev {
+  margin-left: var(--mg);
+}
+.projects .flex-container button#next {
+  margin-right: var(--mg);
+}
+.projects .flex-container .bubbles {
+  color: transparent;
+}
+.projects .flex-container .bubbles .flex-container {
+  gap: 3rem;
+}
+.projects .flex-container .bubbles .border {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 1rem;
+  background-image: linear-gradient(to bottom, hsl(0deg, 50%, 50%), hsl(30deg, 50%, 50%));
+}
+.projects .flex-container .bubbles .squ {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 1rem;
+  position: relative;
+  margin: 0.5rem;
+  background-color: black;
+}
+.projects:hover {
   transform: translateY(20px);
 }
-
-@-webkit-keyframes moveDown {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(20);
-  }
+.projects.unhidden {
+  -webkit-animation-name: showProjects;
+          animation-name: showProjects;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }
-
-@keyframes moveDown {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(20);
-  }
+.projects.hidden {
+  -webkit-animation-name: hideProjects;
+          animation-name: hideProjects;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
 }/*# sourceMappingURL=script.css.map */
