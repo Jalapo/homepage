@@ -178,10 +178,88 @@ html {
     }
 
     #content {
-        width: 100%;
-        height: min(80vw, 35rem);
+        flex-direction: column;
+        height: 60vh;
+        @media only screen and (min-width: $tablet) { // desktop
+            flex-direction: row;
+            width: 100%;
+            height: calc(100vw * 0.2945);
+        }
         background-image: linear-gradient(to bottom right, hsl($hue, $sat - 30%, $lit + 30%), hsl($hue, $sat - 30%, $lit + 5%));
         margin: min(4vw, 2rem) 0px 0px;
+        div {
+            flex: 3 1 0;
+
+            &[id=proj-img] {
+                position: relative;
+                flex: 3 1 0;
+                border-bottom: 0.3rem solid black;
+                @media only screen and (min-width: $tablet) { // desktop
+                    flex: 2 1 0;
+                    border-right: 0.3rem solid black;
+                    border-bottom: none;
+                }
+                /*
+                img {
+                    width: 95%;
+                    height: calc(33vw*(9/16));
+                    border: 8px inset rgba(0,0,0,0.6);
+                    box-shadow: 0px 5px 2rem black;
+                    border-radius: 1rem;
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate(-50%, -50%);
+                    // aspect-ratio: 16 /9;
+
+                     @media only screen and (max-width: $tablet) {
+                        height: 80%;
+                        width: calc(60vh*(1/2)*.8*(16/9));
+                        max-width: 95%;
+                    } */
+                img {
+                    height: 80%;
+                    width: calc(60vh*(1/2)*.8*(16/9));
+                    max-width: 95%;
+                    border: 8px inset rgba(0,0,0,0.6);
+                    box-shadow: 0px 5px 2rem black;
+                    border-radius: 1rem;
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    @media only screen and (min-width: $tablet) { // desktop
+                        width: 95%;
+                        height: calc(95vw*(2/5)*(9/16));
+                    }
+
+                    @media only screen and (max-width: $xsmall) { // thin devices
+                        border: 0.2rem inset rgba(0,0,0,0.6);
+                    }
+                }
+            }
+        }
+    }
+
+    #proj-desc {
+        flex-direction: column;
+        >div {
+            border: 1px solid black;
+            &:last-of-type {
+                justify-content: space-around;
+                button {
+                    height: 85%;
+                    width: calc(60vh*(1/2)*(1/5)*.85*3);  // half content size, 20% of height for section, 85% as button size;
+                    border-radius: 0.5rem;
+                    align-self: center;
+                    
+                    @media only screen and (min-width: $tablet) { // desktop
+                        height: calc(100vw*0.2945*.2*.5);
+                        width: calc(60vw*.2);  // half content size, 20% of height for section, 85% as button size;
+                        min-height: 3rem;
+                    }
+                }
+            }
+        }
     }
     
     // border: 4px solid $gradient-color;
