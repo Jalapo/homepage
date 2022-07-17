@@ -16,7 +16,7 @@
 }
 @-webkit-keyframes showProjects {
   from {
-    margin-top: -50vh;
+    margin-top: -100vh;
   }
   to {
     margin-top: 0%;
@@ -24,7 +24,7 @@
 }
 @keyframes showProjects {
   from {
-    margin-top: -50vh;
+    margin-top: -100vh;
   }
   to {
     margin-top: 0%;
@@ -35,7 +35,7 @@
     margin-top: 0;
   }
   to {
-    margin-top: -50vh;
+    margin-top: -100vh;
   }
 }
 @keyframes hideProjects {
@@ -43,7 +43,7 @@
     margin-top: 0;
   }
   to {
-    margin-top: -50vh;
+    margin-top: -100vh;
   }
 }
 html {
@@ -51,6 +51,7 @@ html {
   color: #DDDDDD;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
 }
 html .flex-container {
   display: flex;
@@ -71,10 +72,16 @@ html body {
 }
 .top #name {
   font-size: min(16vw, 8rem);
+  text-indent: 4rem;
   color: transparent;
   background-image: linear-gradient(to right, hsl(240deg, 100%, 40%), white);
   -webkit-background-clip: text;
           background-clip: text;
+}
+@media only screen and (max-width: 900px) {
+  .top #name {
+    text-indent: 1rem;
+  }
 }
 .top #subtext {
   font-size: min(8vw, 4rem);
@@ -123,8 +130,8 @@ html body {
 }
 
 .projects {
-  width: 100vw;
-  margin-top: -50vh;
+  width: 100%;
+  margin-top: -100vh;
   position: relative;
   z-index: 0;
   padding-top: 5vh;
@@ -140,14 +147,19 @@ html body {
   justify-content: space-between;
   margin: 0vw 4vw;
 }
+@media only screen and (max-width: 360px) {
+  .projects .flex-container {
+    margin: 0vw 3.2vw;
+  }
+}
 .projects .flex-container .button {
   position: relative;
   cursor: pointer;
   align-self: center;
   width: 10%;
   height: 0;
-  max-width: 6rem;
-  padding-bottom: clamp(2rem, 10%, 6rem);
+  max-width: 4rem;
+  padding-bottom: clamp(2rem, 10%, 4rem);
   border-radius: 10rem;
   background-image: linear-gradient(to bottom right, hsl(240deg, 70%, 70%), hsl(240deg, 70%, 45%));
 }
@@ -156,34 +168,41 @@ html body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
+  font-size: min(6vw, 3rem);
   font-weight: 600;
   font-family: Helvetica, Calibri, Arial;
+  color: rgba(212, 212, 212, 0.7);
 }
 .projects .flex-container .bubbles {
   color: transparent;
 }
 .projects .flex-container .bubbles .flex-container {
-  gap: 10vw;
+  gap: 4vw;
 }
 .projects .flex-container .bubbles .border {
   cursor: pointer;
   display: flex;
   width: min(30vw, 13rem);
   height: min(30vw, 13rem);
-  border-radius: 2rem;
+  border-radius: min(6vw, 2rem);
   background-image: linear-gradient(to bottom, hsl(0deg, 50%, 50%), hsl(30deg, 50%, 50%));
   background-image: linear-gradient(to bottom, hsl(240deg, 100%, 40%), hsl(280deg, 70%, 40%));
 }
 .projects .flex-container .bubbles .squ {
   flex-grow: 1;
   border-radius: 1rem;
-  margin: min(4vw, 1rem);
+  margin: min(2vw, 1rem);
   background-color: white;
 }
 .projects .flex-container .bubbles .squ[id=colortest] {
   background-image: linear-gradient(to right, hsl(0deg, 95%, 50%), hsl(30deg, 95%, 50%), hsl(60deg, 95%, 50%), hsl(90deg, 95%, 50%), hsl(120deg, 95%, 50%), hsl(150deg, 95%, 50%), hsl(180deg, 95%, 50%), hsl(210deg, 95%, 50%), hsl(240deg, 95%, 50%), hsl(270deg, 95%, 50%), hsl(300deg, 95%, 50%), hsl(330deg, 95%, 50%), hsl(0deg, 95%, 50%));
   background-image: linear-gradient(to bottom right, rgb(255, 0, 0) 0%, rgb(255, 154, 0) 10%, rgb(208, 222, 33) 20%, rgb(79, 220, 74) 30%, rgb(63, 218, 216) 40%, rgb(47, 201, 226) 50%, rgb(28, 127, 238) 60%, rgb(95, 21, 242) 70%, rgb(186, 12, 248) 80%, rgb(251, 7, 217) 90%, rgb(255, 0, 0) 100%);
+}
+.projects #content {
+  width: 100%;
+  height: min(80vw, 35rem);
+  background-image: linear-gradient(to bottom right, hsl(240deg, 70%, 70%), hsl(240deg, 70%, 45%));
+  margin: min(4vw, 2rem) 0px 0px;
 }
 .projects.unhidden {
   -webkit-animation-name: showProjects;

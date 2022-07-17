@@ -5,7 +5,7 @@ function moveProjects() {
     if (pos == 0) { // if projects are hidden
         projects.classList.add('unhidden');
         projects.classList.remove('hidden');
-        setTimeout(projects.scrollIntoView({behavior:"smooth"}, 2001));
+        setTimeout(() => projects.scrollIntoView({behavior:"smooth"}), 800);
         pos = 1;
     } else if (pos == 1) {
         projects.classList.add('hidden');
