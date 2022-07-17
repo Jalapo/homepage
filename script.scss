@@ -6,19 +6,24 @@ $gradient-color: hsl($hue + 40, $sat - 30, $lit);
 $btn-gradient: $primary-color, $gradient-color;
 $btn-hover-gradient: lighten($primary-color, 20%), lighten($gradient-color, 20%);
 
+$desktop: only screen and (min-width: 600px);
+
+
+
+
 @keyframes loadFade { // initial fade in animation
     from {opacity:0;}
     to {opacity:1;}
 }
 
 @keyframes showProjects {
-    from {margin-top: -14rem;}
-    to {margin-top: 0rem;}
+    from {margin-top: -50vh;}
+    to {margin-top: 0%;}
 }
 
 @keyframes hideProjects {
-    from {margin-top: 0rem;}
-    to {margin-top: -14rem;}
+    from {margin-top: 0;}
+    to {margin-top: -50vh;}
 }
 
 html {
@@ -29,24 +34,30 @@ html {
     .flex-container {
         display: flex;
     }
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
 }
 
 .top {
     position: relative;
     padding-top: 28vh;
+    margin: 0;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     background-color: black;
     #name { // Javen Porter
-        font-size: 5rem;
-        font-size: 10vw;
+        font-size: min(16vw, 8rem);
+        // font-size: 10vw;
         color: transparent;
         background-image: linear-gradient(to right, $primary-color, white);
         background-clip: text;
     }
     #subtext { // Web Developer
-        font-size: 3rem;
-        font-size: 6vw;
+        font-size: min(8vw, 4rem);
+        // font-size: 6vw;
         color: hsl(0, 0%, 75%);
         margin-bottom: min(2vw, 2rem);
     }
@@ -55,11 +66,13 @@ html {
         gap: 1.5rem;
         justify-content: center;
         button {
-            font-size: min(3.2vw, 1.8rem);
+            font-size: min(5.4vw, 1.8rem);
+            // font-size: 1.8rem;
             font-weight: 600;
             border: transparent;
             border-radius: 4em;
-            padding: min(1rem, 2vw) min(3rem, 6vw);
+            padding: min(1rem, 3vw) min(3rem, 9vw);
+            // padding: 1rem 3rem;
             cursor: pointer;
 
             &#projects { // `Projects` button
@@ -80,7 +93,7 @@ html {
         }
     }
     >div { // slow fade-in animation
-        animation-name: loadFade;
+        // animation-name: loadFade;
         animation-duration: 2.5s;
         animation-delay: 0.3s;
         animation-timing-function: ease-in;
@@ -90,48 +103,64 @@ html {
         }
     }
 }
+
 .projects {
+    width: 100vw;
+    margin-top: -50vh;
     position: relative;
-    margin-top: -14rem;
     z-index: 0;
-    padding-top: 2rem;
+    padding-top: 5vh;
     padding-bottom: 2rem;
     .flex-container {
         justify-content: space-between;
-        button {
-            width: 4rem;
-            height: 4rem;
-            font-size: 2.5rem;
-            font-weight: 1000;
-            font-family: serif;
-            color: white;
-            // background-color: hsl(30, 70%, 60%);
-            background-color: hsl($hue, $sat - 40%, $lit + 15%);
-            border: none;
-            border-radius: 100%;
+        margin: 0vw 4vw;
+
+        .button {
+            position: relative;
+            cursor: pointer;
+            // transform: translateY(50%);
             align-self: center;
-            --mg: max(2rem, 5vw);
-            &#prev {margin-left: var(--mg);}
-            &#next {margin-right: var(--mg);}
+            width: 10%;
+            height: 0;
+            max-width: 6rem;
+            padding-bottom: clamp(2rem, 10%, 6rem);
+            // min-width: 6rem;
+            border-radius: 10rem;
+            background-image: linear-gradient(to bottom right, hsl($hue, $sat - 30%, $lit + 30%), hsl($hue, $sat - 30%, $lit + 5%));
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 3rem;
+                font-weight: 600;
+                font-family: Helvetica, Calibri, Arial;
+            }
         }
 
         .bubbles {
             color: transparent;
-            .flex-container{gap: 3rem;}
+            .flex-container{gap: 10vw;}
         
             .border {
-                width: 12rem;
-                height: 12rem;
-                border-radius: 1rem;
+                cursor: pointer;
+                display: flex;
+                width: min(30vw, 13rem);
+                height: min(30vw, 13rem);
+                // padding: min(15vw, 6.5rem);
+                border-radius: 2rem;
                 background-image: linear-gradient(to bottom, hsl(0, 50%, 50%), hsl(30, 50%, 50%));
+                background-image: linear-gradient(to bottom, $btn-gradient);
             }
             .squ {
-                width: 11rem;
-                height: 11rem;
+                flex-grow: 1;
                 border-radius: 1rem;
-                position: relative;
-                margin: 0.5rem;
-                background-color: black;
+                margin: min(4vw, 1rem);
+                background-color: white;
+                &[id=colortest] {
+                    background-image: linear-gradient(to right, hsl(0, 95%, 50%), hsl(30, 95%, 50%), hsl(60, 95%, 50%), hsl(90, 95%, 50%), hsl(120, 95%, 50%), hsl(150, 95%, 50%), hsl(180, 95%, 50%), hsl(210, 95%, 50%), hsl(240, 95%, 50%), hsl(270, 95%, 50%), hsl(300, 95%, 50%), hsl(330, 95%, 50%), hsl(360, 95%, 50%));
+                    background-image: linear-gradient(to bottom right,rgba(255, 0, 0, 1) 0%,rgba(255, 154, 0, 1) 10%,rgba(208, 222, 33, 1) 20%,rgba(79, 220, 74, 1) 30%,rgba(63, 218, 216, 1) 40%,rgba(47, 201, 226, 1) 50%,rgba(28, 127, 238, 1) 60%,rgba(95, 21, 242, 1) 70%,rgba(186, 12, 248, 1) 80%,rgba(251, 7, 217, 1) 90%,rgba(255, 0, 0, 1) 100%);
+                }
             }
         }
     }
@@ -139,7 +168,7 @@ html {
     // border: 4px solid $gradient-color;
     // border-top: 0px;
     border-radius: 0rem 0rem 1rem 1rem;
-    transition: transform 2s;
+    // transition: transform 2s;
     /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
     &:hover{
         transform: translateY(20px);
@@ -156,3 +185,4 @@ html {
         animation-fill-mode: both;
     }
 }
+

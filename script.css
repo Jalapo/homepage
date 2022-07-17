@@ -16,34 +16,34 @@
 }
 @-webkit-keyframes showProjects {
   from {
-    margin-top: -14rem;
+    margin-top: -50vh;
   }
   to {
-    margin-top: 0rem;
+    margin-top: 0%;
   }
 }
 @keyframes showProjects {
   from {
-    margin-top: -14rem;
+    margin-top: -50vh;
   }
   to {
-    margin-top: 0rem;
+    margin-top: 0%;
   }
 }
 @-webkit-keyframes hideProjects {
   from {
-    margin-top: 0rem;
+    margin-top: 0;
   }
   to {
-    margin-top: -14rem;
+    margin-top: -50vh;
   }
 }
 @keyframes hideProjects {
   from {
-    margin-top: 0rem;
+    margin-top: 0;
   }
   to {
-    margin-top: -14rem;
+    margin-top: -50vh;
   }
 }
 html {
@@ -55,25 +55,29 @@ html {
 html .flex-container {
   display: flex;
 }
+html body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
 
 .top {
   position: relative;
   padding-top: 28vh;
+  margin: 0;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
   background-color: black;
 }
 .top #name {
-  font-size: 5rem;
-  font-size: 10vw;
+  font-size: min(16vw, 8rem);
   color: transparent;
   background-image: linear-gradient(to right, hsl(240deg, 100%, 40%), white);
   -webkit-background-clip: text;
           background-clip: text;
 }
 .top #subtext {
-  font-size: 3rem;
-  font-size: 6vw;
+  font-size: min(8vw, 4rem);
   color: hsl(0deg, 0%, 75%);
   margin-bottom: min(2vw, 2rem);
 }
@@ -82,11 +86,11 @@ html .flex-container {
   justify-content: center;
 }
 .top .flex-container button {
-  font-size: min(3.2vw, 1.8rem);
+  font-size: min(5.4vw, 1.8rem);
   font-weight: 600;
   border: transparent;
   border-radius: 4em;
-  padding: min(1rem, 2vw) min(3rem, 6vw);
+  padding: min(1rem, 3vw) min(3rem, 9vw);
   cursor: pointer;
 }
 .top .flex-container button#projects {
@@ -104,8 +108,6 @@ html .flex-container {
   background-image: linear-gradient(to bottom right, #3333ff, #b152e0);
 }
 .top > div {
-  -webkit-animation-name: loadFade;
-          animation-name: loadFade;
   -webkit-animation-duration: 2.5s;
           animation-duration: 2.5s;
   -webkit-animation-delay: 0.3s;
@@ -121,13 +123,13 @@ html .flex-container {
 }
 
 .projects {
+  width: 100vw;
+  margin-top: -50vh;
   position: relative;
-  margin-top: -14rem;
   z-index: 0;
-  padding-top: 2rem;
+  padding-top: 5vh;
   padding-bottom: 2rem;
   border-radius: 0rem 0rem 1rem 1rem;
-  transition: transform 2s;
   /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
   &:hover{
       transform: translateY(20px);
@@ -136,45 +138,52 @@ html .flex-container {
 }
 .projects .flex-container {
   justify-content: space-between;
+  margin: 0vw 4vw;
 }
-.projects .flex-container button {
-  width: 4rem;
-  height: 4rem;
-  font-size: 2.5rem;
-  font-weight: 1000;
-  font-family: serif;
-  color: white;
-  background-color: hsl(240deg, 60%, 55%);
-  border: none;
-  border-radius: 100%;
+.projects .flex-container .button {
+  position: relative;
+  cursor: pointer;
   align-self: center;
-  --mg: max(2rem, 5vw);
+  width: 10%;
+  height: 0;
+  max-width: 6rem;
+  padding-bottom: clamp(2rem, 10%, 6rem);
+  border-radius: 10rem;
+  background-image: linear-gradient(to bottom right, hsl(240deg, 70%, 70%), hsl(240deg, 70%, 45%));
 }
-.projects .flex-container button#prev {
-  margin-left: var(--mg);
-}
-.projects .flex-container button#next {
-  margin-right: var(--mg);
+.projects .flex-container .button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 600;
+  font-family: Helvetica, Calibri, Arial;
 }
 .projects .flex-container .bubbles {
   color: transparent;
 }
 .projects .flex-container .bubbles .flex-container {
-  gap: 3rem;
+  gap: 10vw;
 }
 .projects .flex-container .bubbles .border {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 1rem;
+  cursor: pointer;
+  display: flex;
+  width: min(30vw, 13rem);
+  height: min(30vw, 13rem);
+  border-radius: 2rem;
   background-image: linear-gradient(to bottom, hsl(0deg, 50%, 50%), hsl(30deg, 50%, 50%));
+  background-image: linear-gradient(to bottom, hsl(240deg, 100%, 40%), hsl(280deg, 70%, 40%));
 }
 .projects .flex-container .bubbles .squ {
-  width: 11rem;
-  height: 11rem;
+  flex-grow: 1;
   border-radius: 1rem;
-  position: relative;
-  margin: 0.5rem;
-  background-color: black;
+  margin: min(4vw, 1rem);
+  background-color: white;
+}
+.projects .flex-container .bubbles .squ[id=colortest] {
+  background-image: linear-gradient(to right, hsl(0deg, 95%, 50%), hsl(30deg, 95%, 50%), hsl(60deg, 95%, 50%), hsl(90deg, 95%, 50%), hsl(120deg, 95%, 50%), hsl(150deg, 95%, 50%), hsl(180deg, 95%, 50%), hsl(210deg, 95%, 50%), hsl(240deg, 95%, 50%), hsl(270deg, 95%, 50%), hsl(300deg, 95%, 50%), hsl(330deg, 95%, 50%), hsl(0deg, 95%, 50%));
+  background-image: linear-gradient(to bottom right, rgb(255, 0, 0) 0%, rgb(255, 154, 0) 10%, rgb(208, 222, 33) 20%, rgb(79, 220, 74) 30%, rgb(63, 218, 216) 40%, rgb(47, 201, 226) 50%, rgb(28, 127, 238) 60%, rgb(95, 21, 242) 70%, rgb(186, 12, 248) 80%, rgb(251, 7, 217) 90%, rgb(255, 0, 0) 100%);
 }
 .projects.unhidden {
   -webkit-animation-name: showProjects;
