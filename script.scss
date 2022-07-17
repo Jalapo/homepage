@@ -8,7 +8,7 @@ $btn-hover-gradient: lighten($primary-color, 20%), lighten($gradient-color, 20%)
 
 $ldesktop: 1440px;
 $desktop: 1280px;
-$tablet: 900px;
+$tablet: 950px;
 $xsmall: 360px; // very thin devices
 
 
@@ -73,12 +73,10 @@ html {
         justify-content: center;
         button {
             font-size: min(5.4vw, 1.8rem);
-            // font-size: 1.8rem;
             font-weight: 600;
             border: transparent;
             border-radius: 4em;
             padding: min(1rem, 3vw) min(3rem, 9vw);
-            // padding: 1rem 3rem;
             cursor: pointer;
 
             &#projects { // `Projects` button
@@ -116,7 +114,7 @@ html {
     position: relative;
     z-index: 0;
     padding-top: 5vh;
-    padding-bottom: 2rem;
+    // padding-bottom: 0.5rem;
     // overflow-x:hidden;
     .flex-container {
         justify-content: space-between;
@@ -166,7 +164,7 @@ html {
             .squ {
                 flex-grow: 1;
                 border-radius: 1rem;
-                margin: min(2vw, 1rem);
+                margin: min(2vw, 0.75rem);
                 background-color: white;
                 &[id=colortest] {
                     background-image: linear-gradient(to right, hsl(0, 95%, 50%), hsl(30, 95%, 50%), hsl(60, 95%, 50%), hsl(90, 95%, 50%), hsl(120, 95%, 50%), hsl(150, 95%, 50%), hsl(180, 95%, 50%), hsl(210, 95%, 50%), hsl(240, 95%, 50%), hsl(270, 95%, 50%), hsl(300, 95%, 50%), hsl(330, 95%, 50%), hsl(360, 95%, 50%));
@@ -186,6 +184,7 @@ html {
             height: calc(100vw * 0.2945);
         }
         background-image: linear-gradient(to bottom right, hsl($hue, $sat - 30%, $lit + 30%), hsl($hue, $sat - 30%, $lit + 5%));
+        // border-radius: 0rem 0rem 1.5rem 1.5rem;
         margin: min(4vw, 2rem) 0px 0px;
         div {
             flex: 3 1 0;
@@ -199,23 +198,6 @@ html {
                     border-right: 0.3rem solid black;
                     border-bottom: none;
                 }
-                /*
-                img {
-                    width: 95%;
-                    height: calc(33vw*(9/16));
-                    border: 8px inset rgba(0,0,0,0.6);
-                    box-shadow: 0px 5px 2rem black;
-                    border-radius: 1rem;
-                    position: absolute;
-                    top: 50%; left: 50%;
-                    transform: translate(-50%, -50%);
-                    // aspect-ratio: 16 /9;
-
-                     @media only screen and (max-width: $tablet) {
-                        height: 80%;
-                        width: calc(60vh*(1/2)*.8*(16/9));
-                        max-width: 95%;
-                    } */
                 img {
                     height: 80%;
                     width: calc(60vh*(1/2)*.8*(16/9));
@@ -244,27 +226,69 @@ html {
         flex-direction: column;
         >div {
             border: 1px solid black;
-            &:last-of-type {
+            flex: 2 1 0;
+            text-align: center;
+
+            &[id=title] {
+                flex: 1 1 0;
+                font-size: 8vh;
+                text-align: center;
+            }
+
+            &[id=desc] {
+                font-size: 2vh;
+                @media only screen and (min-width: $desktop) {
+                    font-size: 4vh;
+                }
+            }
+
+            &[id=buttons] {
                 justify-content: space-around;
+                flex: 1 1 0;
                 button {
+                    position: relative;
                     height: 85%;
                     width: calc(60vh*(1/2)*(1/5)*.85*3);  // half content size, 20% of height for section, 85% as button size;
-                    border-radius: 0.5rem;
+                    border-radius: 4rem;
                     align-self: center;
+                    font-size: min(5.4vw, 1.8rem);
+                    font-weight: 600;
+                    border: transparent;
+                    padding: min(1rem, 3vw) min(3rem, 9vw);
+                    cursor: pointer;
+                    text-align: center;
+                    color: lightgray;
+
+                    &:first-of-type { // `Visit` button
+                        background-image: linear-gradient(to bottom right, hsl($hue+45, $sat - 30%, $lit - 25%), hsl($hue+65, $sat - 30%, $lit - 15%));
+                        &:hover {
+                            background-image: linear-gradient(to bottom right, hsl($hue+45, $sat - 30%, $lit - 5%), hsl($hue+65, $sat - 30%, $lit + 5%));
+                        }
+                    }
+                    &:last-of-type { // `Source` button
+                        // color: hsl(200, 100%, 60%);
+                        background-image: linear-gradient(to bottom left, hsl($hue+45, $sat - 30%, $lit - 25%), hsl($hue+65, $sat - 30%, $lit - 15%));
+                        &:hover {
+                            background-image: linear-gradient(to bottom left, hsl($hue+45, $sat - 30%, $lit - 5%), hsl($hue+65, $sat - 30%, $lit + 5%));
+                        }
+                    }
                     
                     @media only screen and (min-width: $tablet) { // desktop
                         height: calc(100vw*0.2945*.2*.5);
                         width: calc(60vw*.2);  // half content size, 20% of height for section, 85% as button size;
                         min-height: 3rem;
                     }
+
+                    span {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
                 }
             }
         }
     }
-    
-    // border: 4px solid $gradient-color;
-    // border-top: 0px;
-    border-radius: 0rem 0rem 1rem 1rem;
     // transition: transform 2s;
     /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
     &:hover{
