@@ -191,10 +191,10 @@ html body {
   border-radius: 1rem;
   margin: min(2vw, 0.75rem);
   background-color: white;
-}
-.projects .flex-container .bubbles .squ[id=colortest] {
-  background-image: linear-gradient(to right, hsl(0deg, 95%, 50%), hsl(30deg, 95%, 50%), hsl(60deg, 95%, 50%), hsl(90deg, 95%, 50%), hsl(120deg, 95%, 50%), hsl(150deg, 95%, 50%), hsl(180deg, 95%, 50%), hsl(210deg, 95%, 50%), hsl(240deg, 95%, 50%), hsl(270deg, 95%, 50%), hsl(300deg, 95%, 50%), hsl(330deg, 95%, 50%), hsl(0deg, 95%, 50%));
-  background-image: linear-gradient(to bottom right, rgb(255, 0, 0) 0%, rgb(255, 154, 0) 10%, rgb(208, 222, 33) 20%, rgb(79, 220, 74) 30%, rgb(63, 218, 216) 40%, rgb(47, 201, 226) 50%, rgb(28, 127, 238) 60%, rgb(95, 21, 242) 70%, rgb(186, 12, 248) 80%, rgb(251, 7, 217) 90%, rgb(255, 0, 0) 100%);
+  /*&[id=colortest] {
+      background-image: linear-gradient(to right, hsl(0, 95%, 50%), hsl(30, 95%, 50%), hsl(60, 95%, 50%), hsl(90, 95%, 50%), hsl(120, 95%, 50%), hsl(150, 95%, 50%), hsl(180, 95%, 50%), hsl(210, 95%, 50%), hsl(240, 95%, 50%), hsl(270, 95%, 50%), hsl(300, 95%, 50%), hsl(330, 95%, 50%), hsl(360, 95%, 50%));
+      background-image: linear-gradient(to bottom right,rgba(255, 0, 0, 1) 0%,rgba(255, 154, 0, 1) 10%,rgba(208, 222, 33, 1) 20%,rgba(79, 220, 74, 1) 30%,rgba(63, 218, 216, 1) 40%,rgba(47, 201, 226, 1) 50%,rgba(28, 127, 238, 1) 60%,rgba(95, 21, 242, 1) 70%,rgba(186, 12, 248, 1) 80%,rgba(251, 7, 217, 1) 90%,rgba(255, 0, 0, 1) 100%);
+  }*/
 }
 .projects #content {
   flex-direction: column;
@@ -251,14 +251,18 @@ html body {
   flex-direction: column;
 }
 .projects #proj-desc > div {
-  border: 1px solid black;
   flex: 2 1 0;
   text-align: center;
 }
 .projects #proj-desc > div[id=title] {
   flex: 1 1 0;
-  font-size: 8vh;
+  font-size: 6vh;
   text-align: center;
+}
+@media only screen and (min-width: 1280px) {
+  .projects #proj-desc > div[id=title] {
+    font-size: 8vh;
+  }
 }
 .projects #proj-desc > div[id=desc] {
   font-size: 2vh;
