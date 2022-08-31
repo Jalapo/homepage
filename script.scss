@@ -8,7 +8,7 @@ $btn-hover-gradient: lighten($primary-color, 20%), lighten($gradient-color, 20%)
 
 $ldesktop: 1440px;
 $desktop: 1280px;
-$tablet: 950px;
+$tablet: 750px;
 $xsmall: 360px; // very thin devices
 
 
@@ -45,13 +45,25 @@ html {
     }
 }
 
+#artCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 50vh;
+    // border: 1px solid red;
+    background-color: black;
+    @media screen and (min-width: $tablet) {height: 70vh;}
+}
+
 .top {
     position: relative;
     padding-top: 28vh;
     margin: 0;
     text-align: center;
     z-index: 2;
-    background-color: black;
+    background-color: transparent;
     #name { // Javen Porter
         font-size: min(16vw, 8rem);
         text-indent: 4rem;
@@ -112,7 +124,7 @@ html {
     width: 100%;
     margin-top: -100vh;
     position: relative;
-    z-index: 0;
+    z-index: -1;
     padding-top: 5vh;
     // padding-bottom: 0.5rem;
     // overflow-x:hidden;
@@ -306,6 +318,7 @@ html {
         animation-name: hideProjects;
         animation-duration: 0.8s;
         animation-fill-mode: both;
+        z-index: -1;
     }
 }
 

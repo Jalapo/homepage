@@ -62,13 +62,28 @@ html body {
   width: 100%;
 }
 
+#artCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 50vh;
+  background-color: black;
+}
+@media screen and (min-width: 750px) {
+  #artCanvas {
+    height: 70vh;
+  }
+}
+
 .top {
   position: relative;
   padding-top: 28vh;
   margin: 0;
   text-align: center;
   z-index: 2;
-  background-color: black;
+  background-color: transparent;
 }
 .top #name {
   font-size: min(16vw, 8rem);
@@ -78,7 +93,7 @@ html body {
   -webkit-background-clip: text;
           background-clip: text;
 }
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 750px) {
   .top #name {
     text-indent: 1rem;
   }
@@ -133,7 +148,7 @@ html body {
   width: 100%;
   margin-top: -100vh;
   position: relative;
-  z-index: 0;
+  z-index: -1;
   padding-top: 5vh;
   /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
   &:hover{
@@ -202,7 +217,7 @@ html body {
   background-image: linear-gradient(to bottom right, hsl(240deg, 70%, 70%), hsl(240deg, 70%, 45%));
   margin: min(4vw, 2rem) 0px 0px;
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 750px) {
   .projects #content {
     flex-direction: row;
     width: 100%;
@@ -217,7 +232,7 @@ html body {
   flex: 3 1 0;
   border-bottom: 0.3rem solid black;
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 750px) {
   .projects #content div[id=proj-img] {
     flex: 2 1 0;
     border-right: 0.3rem solid black;
@@ -236,7 +251,7 @@ html body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 750px) {
   .projects #content div[id=proj-img] img {
     width: 95%;
     height: 21.375vw;
@@ -302,7 +317,7 @@ html body {
 .projects #proj-desc > div[id=buttons] button:last-of-type:hover {
   background-image: linear-gradient(to bottom left, hsl(285deg, 70%, 35%), hsl(305deg, 70%, 45%));
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 750px) {
   .projects #proj-desc > div[id=buttons] button {
     height: 2.945vw;
     width: 12vw;
@@ -330,4 +345,5 @@ html body {
           animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
+  z-index: -1;
 }/*# sourceMappingURL=script.css.map */

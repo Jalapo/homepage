@@ -2,7 +2,7 @@ let pos = 0; // hidden
 let projPos = 0;
 
 let xsmall = 360;    // count 1
-let tablet = 900;    // count 2
+let tablet = 750;    // count 2
 let desktop = 1280;  // count 3
 let ldesktop = 1440; // count 4
 
@@ -15,7 +15,7 @@ let projects = [];
 if (document.readyState !== 'loading') {start()} 
 else {document.addEventListener('DOMContentLoaded', () => {start();});}
 
-window.addEventListener('resize', ()=> {initializeProjects();});
+window.addEventListener('resize', ()=> {initializeProjects();init();});
 
 function start() {
     getProjects();

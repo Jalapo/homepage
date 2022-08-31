@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="script.css">
     <script type="text/javascript" src="script.js"></script>
-    <title>Homepage</title>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script type="text/javascript" src="canvas.js"></script>
+    <title>Javen's Homepage</title>
 </head>
-<body>
+<body onload="init();">
+    <canvas id="artCanvas" width="1920" height="1080"></canvas>
+    
     <div class="top">
         <div class="text" id="name">Javen Porter</div>
         <div class="text" id="subtext">Web Developer</div>
