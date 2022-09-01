@@ -71,9 +71,3 @@ function handleTick() {
     });
     _stage.update();
 }
-
-function rep(cmd, num) {
-    for (let i = 0; i < num; i++) {
-        cmd;
-    }
-}

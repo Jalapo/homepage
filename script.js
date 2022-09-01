@@ -15,7 +15,7 @@ let projects = [];
 if (document.readyState !== 'loading') {start()} 
 else {document.addEventListener('DOMContentLoaded', () => {start();});}
 
-window.addEventListener('resize', ()=> {initializeProjects();init();});
+window.addEventListener('resize', ()=> {initializeProjects();});
 
 function start() {
     getProjects();
@@ -92,6 +92,8 @@ function initializeProjects() {
         d1.append(d2);
         bubbles.append(d1);
     }
+    loadBubbles(projPos, count);
+    init();
 }
 
 function loadBubbles(startPos, count) {
