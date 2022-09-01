@@ -148,7 +148,7 @@ html body {
   width: 100%;
   margin-top: -100vh;
   position: relative;
-  z-index: -1;
+  z-index: 0;
   padding-top: 5vh;
   /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
   &:hover{
