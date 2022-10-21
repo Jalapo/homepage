@@ -1,3 +1,6 @@
+// additions:
+//  - force change projPos when resizing screen
+
 let pos = 0; // hidden
 let projPos = 0;
 
@@ -41,7 +44,8 @@ function moveProjects() {
 
 function getProjects() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "/projects");
+    let loc = window.location.href.includes("127.0.0.1") ? "https://javenp.com" : "";
+    xhr.open("GET", loc+"/projects");
     xhr.send();
 
     xhr.onload = ( () => {
@@ -93,7 +97,7 @@ function initializeProjects() {
         bubbles.append(d1);
     }
     loadBubbles(projPos, count);
-    init();
+    init(); // refresh canvas "floating" bubbles
 }
 
 function loadBubbles(startPos, count) {
