@@ -15,7 +15,7 @@ let count = 2;
 let projects = [];
 
 
-if (document.readyState !== 'loading') {start()} 
+if (document.readyState !== 'loading') {start();} 
 else {document.addEventListener('DOMContentLoaded', () => {start();});}
 
 window.addEventListener('resize', ()=> {initializeProjects();});
@@ -34,10 +34,13 @@ function moveProjects() {
         projDIV.classList.remove('hidden');
         setTimeout(() => projDIV.scrollIntoView({behavior:"smooth"}), 800);
         pos = 1;
+        setTimeout(() => {resizeCanvas(pos);projDIV.style.zIndex='4'}, 1600);
     } else if (pos == 1) {
         projDIV.classList.add('hidden');
         projDIV.classList.remove('unhidden');
         pos = 0;
+        resizeCanvas(pos);
+        projDIV.style.zIndex='1';
     }
     
 }
@@ -108,6 +111,7 @@ function loadBubbles(startPos, count) {
     }
     for (let x = 0; x < count; x++) {
         bubbles.children[x].querySelector(`.squ`).style.backgroundImage = items[x].preview;
+        bubbles.children[x].querySelector(`.squ`).style.backgroundSize = '100%';
         bubbles.children[x].addEventListener("click", () => {setupProject(items[x])});
     }
 }

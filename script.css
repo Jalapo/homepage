@@ -62,18 +62,28 @@ html body {
   width: 100%;
 }
 
-#artCanvas {
+#canv-shield {
+  z-index: 2;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
   width: 100%;
   height: 50vh;
   background-color: black;
 }
+
+#artCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0);
+}
 @media screen and (min-width: 750px) {
   #artCanvas {
-    height: 70vh;
+    height: 100vh;
   }
 }
 
@@ -82,7 +92,7 @@ html body {
   padding-top: 28vh;
   margin: 0;
   text-align: center;
-  z-index: 2;
+  z-index: 5;
   background-color: transparent;
 }
 .top #name {
@@ -148,7 +158,7 @@ html body {
   width: 100%;
   margin-top: -100vh;
   position: relative;
-  z-index: 0;
+  z-index: 1;
   padding-top: 5vh;
   /*  change this code later to transform when 'Projects' button is hovered on for 3 seconds
   &:hover{
@@ -345,5 +355,4 @@ html body {
           animation-duration: 0.8s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  z-index: -1;
 }/*# sourceMappingURL=script.css.map */
