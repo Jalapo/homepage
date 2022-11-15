@@ -65,6 +65,33 @@ html {
     @media screen and (min-width: $tablet) {height: 100vh;}
 }
 
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    position: absolute;
+    height: 5vh;
+    width: 100%;
+    // border: 1px solid red;
+    z-index: 6;
+    .empty{width:0rem;margin:0rem;padding:0rem;}
+    button {
+        width: 3rem;
+        height: 100%;
+        border: none;
+        color: white;
+        background-color: transparent;
+        cursor: pointer;
+        img{width:100%;height:100%;}
+    }
+
+    #adminLogin {
+        color: white;
+        cursor: pointer;
+        &.hidden{color:transparent;cursor:default;}
+    }
+}
+
 .top {
     position: relative;
     padding-top: 28vh;

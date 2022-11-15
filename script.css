@@ -87,6 +87,41 @@ html body {
   }
 }
 
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+  position: absolute;
+  height: 5vh;
+  width: 100%;
+  z-index: 6;
+}
+header .empty {
+  width: 0rem;
+  margin: 0rem;
+  padding: 0rem;
+}
+header button {
+  width: 3rem;
+  height: 100%;
+  border: none;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+header button img {
+  width: 100%;
+  height: 100%;
+}
+header #adminLogin {
+  color: white;
+  cursor: pointer;
+}
+header #adminLogin.hidden {
+  color: transparent;
+  cursor: default;
+}
+
 .top {
   position: relative;
   padding-top: 28vh;

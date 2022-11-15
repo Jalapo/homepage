@@ -13,6 +13,8 @@ let width = tablet;
 let count = 2;
 
 let projects = [];
+let adminLogin;
+let AL_callback = ()=>{window.open("/login","_self")};
 
 
 if (document.readyState !== 'loading') {start();} 
@@ -103,6 +105,15 @@ function initializeProjects() {
     init(); // refresh canvas "floating" bubbles
 }
 
+function initEvents() {
+    let projButtons = document.querySelectorAll(".projects .button");
+    projButtons[0].addEventListener("click", () => {projButton("left")});
+    projButtons[1].addEventListener("click", () => {projButton("right")});
+    adminLogin = document.querySelector("#adminLogin");
+    // show admin login when holding LAlt
+    document.addEventListener("keydown", (ev)=>{if (ev.key=="Alt") toggleLogin()});
+}
+
 function loadBubbles(startPos, count) {
     let bubbles = document.querySelector(".projects .bubbles>.flex-container");
     let items = [];
@@ -114,12 +125,6 @@ function loadBubbles(startPos, count) {
         bubbles.children[x].querySelector(`.squ`).style.backgroundSize = '100%';
         bubbles.children[x].addEventListener("click", () => {setupProject(items[x])});
     }
-}
-
-function initEvents() {
-    let projButtons = document.querySelectorAll(".projects .button");
-    projButtons[0].addEventListener("click", () => {projButton("left")});
-    projButtons[1].addEventListener("click", () => {projButton("right")});
 }
 
 function setupProject(obj) {
@@ -148,4 +153,17 @@ function projButton(button) { // button: string [left || right]
         }
     }
     loadBubbles(projPos, count);
+}
+
+function toggleLogin() {
+    // hide login button
+    if (adminLogin.classList.toggle('hidden')) {
+        adminLogin.removeEventListener("click", AL_callback);
+        console.log('toggle off');
+    }// toggle visibility of login button 
+    else {
+        adminLogin.addEventListener("click", AL_callback);
+        console.log('toggle on');
+
+    }
 }
