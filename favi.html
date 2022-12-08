@@ -4,15 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kenia" />
     <style>
-        p {
+        html,body{width:100%;}body{padding:0;margin:0;}
+        #text {
+            margin:0;
+            padding:0;
+            background: linear-gradient(135deg, hsl(240,100%,50%) 0%, hsl(215,100%,50%) 50%, hsl(280,70%,50%) 70%);
+            /* clip gradient background around text */
+            -webkit-background-clip:text;
+            -moz-background-clip: text;
+            background-clip:text;
+            /* transparent color for gradient text */
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            
+            position: absolute;
+            top: 0rem;
+            left: 0rem;
             font-size: 12rem;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+            width: 12rem;
+            height: 12rem;
+            font-family: 'Kenia', serif;
+            /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande'; */
         }
     </style>
     <title>Title</title>
 </head>
 
 <body>
-    <p>JP</p>
+    <div id="text">JP</div>
 </body>
