@@ -10,17 +10,22 @@ body {
   display: flex;
 }
 
-.sidebar {
+#sidebar {
   flex: 1 1 0;
+  margin-top: 20vh;
+  gap: 2rem;
   display: flex;
   justify-content: left;
   flex-direction: column;
 }
-.sidebar button {
+#sidebar button {
   flex: 0 1 1;
   font-weight: 600;
   font-size: 1.25rem;
+  color: hsl(0deg, 0%, 70%);
   padding: 1rem 4rem;
+  background-color: hsla(0deg, 0%, 50%, 0.1);
+  border: 0.125rem double hsla(0deg, 0%, 50%, 0.4);
   border-radius: 2rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
