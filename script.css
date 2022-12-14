@@ -16,34 +16,68 @@
 }
 @-webkit-keyframes showProjects {
   from {
-    margin-top: -100vh;
+    height: 0;
   }
   to {
-    margin-top: 0%;
+    height: inherit;
   }
 }
 @keyframes showProjects {
   from {
-    margin-top: -100vh;
+    height: 0;
   }
   to {
-    margin-top: 0%;
+    height: inherit;
   }
 }
 @-webkit-keyframes hideProjects {
   from {
-    margin-top: 0;
+    height: inherit;
   }
   to {
-    margin-top: -100vh;
+    height: 0;
   }
 }
 @keyframes hideProjects {
   from {
-    margin-top: 0;
+    height: inherit;
   }
   to {
-    margin-top: -100vh;
+    height: 0;
+  }
+}
+@-webkit-keyframes animateBG {
+  0% {
+    background-position-x: 0%;
+  }
+  25% {
+    background-position-x: 50%;
+  }
+  50% {
+    background-position-x: 95%;
+  }
+  75% {
+    background-position-x: 50%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
+@keyframes animateBG {
+  0% {
+    background-position-x: 0%;
+  }
+  25% {
+    background-position-x: 50%;
+  }
+  50% {
+    background-position-x: 95%;
+  }
+  75% {
+    background-position-x: 50%;
+  }
+  100% {
+    background-position-x: 0%;
   }
 }
 html {
@@ -60,6 +94,12 @@ html body {
   padding: 0;
   margin: 0;
   width: 100%;
+  background: linear-gradient(to right, hsl(200deg, 100%, 4%), hsl(280deg, 100%, 4%));
+  background-size: 300% 300%;
+  -webkit-animation: animateBG infinite;
+          animation: animateBG infinite;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
 }
 
 #canv-shield {
@@ -77,14 +117,7 @@ html body {
   top: 0;
   left: 0;
   z-index: 3;
-  width: 100%;
-  height: 50vh;
   background-color: rgba(0, 0, 0, 0);
-}
-@media screen and (min-width: 750px) {
-  #artCanvas {
-    height: 100vh;
-  }
 }
 
 header {
@@ -190,8 +223,11 @@ header #adminLogin.hidden {
 }
 
 .projects {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
-  margin-top: -100vh;
+  margin-top: 0%;
   position: relative;
   z-index: 1;
   padding-top: 5vh;
@@ -375,7 +411,7 @@ header #adminLogin.hidden {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.projects.unhidden {
+.projects.unhidden, .projects *.unhidden {
   -webkit-animation-name: showProjects;
           animation-name: showProjects;
   -webkit-animation-duration: 0.8s;
@@ -383,7 +419,7 @@ header #adminLogin.hidden {
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
-.projects.hidden {
+.projects.hidden, .projects *.hidden {
   -webkit-animation-name: hideProjects;
           animation-name: hideProjects;
   -webkit-animation-duration: 0.8s;
