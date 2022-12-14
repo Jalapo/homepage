@@ -1,3 +1,5 @@
 script.css.map
 node_modules/
 package*.json
+nodes/*
+pages/**/index.html

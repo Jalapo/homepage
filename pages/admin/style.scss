@@ -1,0 +1,18 @@
+@keyframes clickSucceed {
+    from {background-color: inherit;}
+    to {background-color: hsl(120,75%,50%);}
+    // 100% {background-color: initial;}
+}
+@keyframes clickFail {
+    from {background-color: inherit;}
+    to {background-color: hsl(0,75%,50%);}
+    // 100% {background-color: initial;}
+}
+body{
+    background-color: #222;
+    color: #fff;
+}
+button {
+    background-color: #aaa;
+    border: none;
+}
