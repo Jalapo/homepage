@@ -14,7 +14,7 @@ let count = 2;
 
 let projects = [];
 let adminLogin;
-let AL_callback = ()=>{window.open("./admin/login","_self")};
+let AL_callback;
 
 
 if (document.readyState !== 'loading') {start();} 
@@ -116,8 +116,19 @@ function initEvents() {
     projButtons[0].addEventListener("click", () => {projButton("left")});
     projButtons[1].addEventListener("click", () => {projButton("right")});
     adminLogin = document.querySelector("#adminLogin");
+
+    let tryLogin = "/";
+    // find login page location
+    fetch("./admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
+        fetch("./pages/admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
+        console.error("Error: admin login page not found");
+        }});
+    }});
+    AL_callback = ()=>{window.open(tryLogin,"_self")}
     // show admin login when holding LAlt
-    document.addEventListener("keydown", (ev)=>{if (ev.key=="Alt") toggleLogin()});
+    document.addEventListener("keyup", (ev)=>{if (ev.key=="Shift") toggleLogin()});
+
+    function handleFetch(r){if (r.status==200){tryLogin=r.url;return true} else return false;}
 }
 
 function loadBubbles(startPos, count) {
