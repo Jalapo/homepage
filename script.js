@@ -14,7 +14,7 @@ let count = 2;
 
 let projects = [];
 let adminLogin;
-let AL_callback = ()=>{window.open("/login","_self")};
+let AL_callback = ()=>{window.open("./admin/login","_self")};
 
 
 if (document.readyState !== 'loading') {start();} 
@@ -25,7 +25,13 @@ window.addEventListener('resize', ()=> {initializeProjects();});
 function start() {
     getProjects();
     initEvents();
-    setTimeout(() => setupProject(projects[0]), 1000);
+    // try to load initial project every 250ms until it has been fetched
+    let waitForProjects = setInterval(()=>{
+        if (projects.length>0) {
+            setupProject(projects[0]);
+            clearInterval(waitForProjects);
+        } else console.log('waiting for projects...');
+    },250);
 }
 
 
