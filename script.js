@@ -38,16 +38,24 @@ function start() {
 function moveProjects() {
     let projDIV = document.querySelector(".projects");
     if (pos == 0) { // if projects are hidden
+        projDIV.childNodes.forEach(elm => {
+            elm.classList.add('unhidden');
+            elm.classList.remove('hidden');
+        });
         projDIV.classList.add('unhidden');
         projDIV.classList.remove('hidden');
         setTimeout(() => projDIV.scrollIntoView({behavior:"smooth"}), 800);
         pos = 1;
-        setTimeout(() => {resizeCanvas(pos);projDIV.style.zIndex='4'}, 1600);
+        // setTimeout(() => {resizeCanvas(pos);projDIV.style.zIndex='4'}, 1600);
     } else if (pos == 1) {
+        projDIV.childNodes.forEach(elm => {
+            elm.classList.add('hidden');
+            elm.classList.remove('unhidden');
+        });
         projDIV.classList.add('hidden');
         projDIV.classList.remove('unhidden');
         pos = 0;
-        resizeCanvas(pos);
+        // resizeCanvas(pos);
         projDIV.style.zIndex='1';
     }
     
@@ -108,7 +116,7 @@ function initializeProjects() {
         bubbles.append(d1);
     }
     loadBubbles(projPos, count);
-    init(); // refresh canvas "floating" bubbles
+    // init(); // refresh canvas "floating" bubbles
 }
 
 function initEvents() {
@@ -119,11 +127,11 @@ function initEvents() {
 
     let tryLogin = "/";
     // find login page location
-    fetch("./admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
-        fetch("./pages/admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
-        console.error("Error: admin login page not found");
-        }});
-    }});
+    // fetch("./admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
+        // fetch("./pages/admin/login/",{method:"HEAD"}).then((res)=>{if (!handleFetch(res)) {
+        // console.error("Error: admin login page not found");
+        // }});
+    // }});
     AL_callback = ()=>{window.open(tryLogin,"_self")}
     // show admin login when holding LAlt
     document.addEventListener("keyup", (ev)=>{if (ev.key=="Shift") toggleLogin()});

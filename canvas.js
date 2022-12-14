@@ -1,8 +1,8 @@
 var _stage;
 var canvas;
 var ticker;
-if (document.readyState !== 'loading') {canvas = document.getElementById("artCanvas");init();} 
-else {document.addEventListener('DOMContentLoaded', () => {canvas = document.getElementById("artCanvas");init();});}
+// if (document.readyState !== 'loading') {canvas = document.getElementById("artCanvas");init();} 
+// else {document.addEventListener('DOMContentLoaded', () => {canvas = document.getElementById("artCanvas");init();});}
 // document.getElementById("artCanvas");
 
 function init() {
