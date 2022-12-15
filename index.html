@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./style.css" />
-    <script type="text/javascript" src="script.js"></script>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script type="text/javascript" src="./pages.js" defer></script>
+    <script type="text/javascript" src="./script.js"></script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Text" />
     <link rel="apple-touch-icon" sizes="256x256" href="./favicon.ico" />
     <meta name="theme-color" content="#000" />
@@ -14,13 +19,13 @@
 </head>
 <body>
     <div id="sidebar">
-        <button id="sel">About Me</button>
+        <button>About Me</button>
         <button>Projects</button>
         <button>Contact</button>
     </div>
 
-    <div class="content" id="about"> <!-- possible ids: 'about', 'projects', 'contact'-->
-        <h1>Hi! I am Javen Porter</h1>
+    <div class="content"> <!-- possible ids: 'about', 'projects', 'contact'-->
+        
     </div>
 </body>
 </html>
