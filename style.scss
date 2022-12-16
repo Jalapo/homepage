@@ -78,10 +78,8 @@ body {
         // border: 1px solid green;
     }
     .project {
-        // width: calc(calc(69vw)/2);
-        // width: calc(50% - 1vw);
         display: flex;
-        flex: 1 1 initial;
+        flex: 1 1 1;
         flex-direction: column;
         align-items: center;
         max-width: 28vw;
@@ -91,13 +89,8 @@ body {
         border-radius: 1.8%;
         box-sizing: border-box;
         .preview {
-            // width:15%;
-            // width: calc(calc(70vw - 2.5vw)/2);
-            // width: 100%;
-            height: 100%;
-            width: 100%;
-            // width: auto;
-            // >*{scale: 5;}
+            max-height: 100%;
+            max-width: 100%;
         }
         .title {
             font-size: 2rem;
@@ -106,6 +99,7 @@ body {
         .tech {
             display: flex;
             justify-content: normal;
+            gap: 0.1rem;
             width: 100%;
             margin: 0;
             padding: 0;

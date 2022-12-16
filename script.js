@@ -15,7 +15,7 @@ function start() {
     }
     // render initial page if id is not null
     if (id) reactRender(id);
-
+    window.addEventListener("resize", resize);
 }
 
 function handleContactClick(goto) {
@@ -114,5 +114,40 @@ function initSidebarButtons() {
             }}
         });
         reactRender(cDiv.id);
+    }
+}
+
+function resize() {
+    console.log('attempt');
+    switch (document.querySelector('.content')?.id) {
+        case 'projects':
+            let smallestFont = 1.5;
+            // save each project element into an array
+            let projects = document.querySelectorAll(".project");
+            // loop over array
+            projects.forEach(p=>{
+                // change img width to 26.9% of screen
+                let newImgWidth = document.body.getBoundingClientRect().width * 0.269085
+                p.querySelector('img').width = newImgWidth;
+                p.querySelector('img').height = newImgWidth/(16/9);
+
+                // set tech section to initial font size
+                let techDiv = p.querySelector('div.tech');
+                techDiv.style.fontSize = '1.5rem'
+
+                // compare size of each txt element to first txt element
+                let firstChild = techDiv.childNodes[0];
+                techDiv.childNodes.forEach(e=>{
+                    while (e.getBoundingClientRect().width != firstChild.getBoundingClientRect().width) {
+                        // shrink current font by 0.1rem if elements do not match in size
+                        newFont = techDiv.style.fontSize.split('rem')[0] - 0.1;
+                        techDiv.style.fontSize = newFont+"rem";
+                        // change smallestFont to newFont if newFront is smaller, otherwise do not change
+                        smallestFont = (newFont<smallestFont)? newFont:smallestFont;
+                    }
+                });
+            });
+            projects.forEach(p=>{p.querySelector('div.tech').style.fontSize=smallestFont+'rem'});
+        break;
     }
 }

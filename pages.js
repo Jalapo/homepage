@@ -3,23 +3,22 @@ const projInfo = new Map([
     ["circle-catcher", {title:"Circle Catcher", tech:["HTML","CSS","JS"]}],
     ["savedlinks", {title:"Saved Links", tech:["HTML","SCSS","TypeScript","Node.js","MySQL"]}],
     // ["cc", {title:"CC", tech:["HTML","SCSS","TypeScript","Node.js","MySQL"]}],
-    // ["1", {title:"Saved Links", tech:["HTML","SCSS","TypeScript","Node.js","MySQL"]}],
+    // ["1", {title:"1", tech:["HTML","SCSS","TypeScript","Node.js"]}],
     // ["2", {title:"Saved Links", tech:["HTML","SCSS","TypeScript","Node.js","MySQL"]}],
 ]);
 const contactInfo = new Map([["gh","github.gif"],["ln","linkedin.gif"]]);
 
 function About() {
-  return /*#__PURE__*/React.createElement("h1", null, "Hi! I am Javen Porter");
+  return React.createElement("h1", null, "Hi! I am Javen Porter");
 }
 const root = ReactDOM.createRoot(document.querySelector(".content"));
 // root.render( /*#__PURE__*/React.createElement(Projects, null));
 
-
 function reactRender(page) {
     switch (page) {
-        case "about": root.render( /*#__PURE__*/React.createElement(About, null)); break;
-        case "projects": root.render( /*#__PURE__*/React.createElement(Projects, null)); break;
-        case "contact": root.render( /*#__PURE__*/React.createElement(Contact, null)); break;
+        case "about": root.render(React.createElement(About, null)); break;
+        case "projects": root.render(React.createElement(Projects, null));break;
+        case "contact": root.render(React.createElement(Contact, null)); break;
     }
 }
 
@@ -90,18 +89,20 @@ function Projects() {
     let projectNames = Array.from(projInfo.keys());
     let c = [];
     for (let i in projectNames) c.push(React.createElement(project,{key: projectNames[i], projectName: projectNames[i]}));
-    return React.createElement("div", {className: "reactApp"}, c, React.createElement("div",null,"shrink font size in tech boxes by using clientWidth of project VS sum of tech txt boxes"));
+    return React.createElement("div", {className: "reactApp", onLoad: resize}, c);
 }
 
 function project(props) {
     let name = props.projectName;
     let project = projInfo.get(name);
     let techStack = [];
+    // determine image size before loading to prevent ugly image resizing on 'Projects' page load
+    let projWidth = document.body.getBoundingClientRect().width * 0.269085; 
     for (let i in project.tech) techStack.push(React.createElement("div", {key:i}, project.tech[i]));
     return React.createElement("div", {className: "project"},
-    React.createElement("img", {className: "preview", src: `./img/${name}.png`}),
+    React.createElement("img", {className: "preview", src: `./img/${name}.png`, width: projWidth, height: projWidth/(16/9)}),
     React.createElement("div", {className: "title"}, project.title),
-    React.createElement("div", {className: "tech"}, techStack),
+    React.createElement("div", {className: "tech", style: {fontSize:"1.5rem"}}, techStack),
     )
 }
 
