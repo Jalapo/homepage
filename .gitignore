@@ -6,3 +6,4 @@ pages/**/index.html
 img/[0-9].png
 img/cc.png
 **.txt
+*.json

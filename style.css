@@ -21,7 +21,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(to bottom, hsl(220deg, 100%, 10%), hsl(280deg, 100%, 5%));
+  background: linear-gradient(to top, hsl(220deg, 100%, 10%), hsl(280deg, 100%, 5%));
   display: flex;
   overflow: hidden;
 }
@@ -72,26 +72,85 @@ body * {
   flex: 1 1 0;
   color: hsl(0deg, 0%, 88%);
 }
+.content .no_sel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
 
 #about .reactApp {
+  width: 100%;
+  height: 100%;
   -webkit-animation: fadeIn 2s ease-out;
           animation: fadeIn 2s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
-  margin: 5% 0%;
-  padding: 0% 2%;
-}
-#about .reactApp #left_sec {
-  flex: 1 1 0;
-  margin-top: 30vh;
+  gap: 5%;
+  /*#left_sec {
+      // border: 1px solid red;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+  }*/
+  /* #right_sec {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      // border: 1px solid red;
+      h3{width:fit-content;margin-top:auto;align-self:center;}
+      .icons {
+          // align-content: bottom;
+          // max-width: 16vw;
+          height: 100%;
+          width: inherit;
+          flex: 1 1 0;
+          border: 1px solid green;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          // justify-content: space-between;
+          // align-items: center;
+          padding: 0% 0% 5%;
+          gap: 2%;
+          .img_holder {
+              // height:100%;
+              // max-width: fit-content;
+              border: 1px solid yellow;
+              flex: 1 1 0;
+              // width: inherit;
+              // height: 100%;
+              display: flex;
+              margin: 0px;
+              padding: 0px;
+              img{
+                  border: 1px solid red;
+                  // max-height: calc(calc(100vh - calc(2% * 6))/7);
+                  // flex: 1 1 0;
+                  // height: 100%;
+                  // width: 100%;
+                  transition: scale 1s ease;
+                  &:hover{scale:1.1;}
+              }
+          }
+
+      }
+  } */
 }
 #about .reactApp #center_sec {
-  flex: 2 1 0;
+  flex: 4 1 0;
   display: flex;
   flex-direction: column;
 }
 #about .reactApp #center_sec p {
   font-size: 1.5rem;
   font-weight: 600;
+  width: 60%;
+  align-self: center;
 }
 #about .reactApp #center_sec h1 {
   text-align: center;
@@ -116,63 +175,248 @@ body * {
 #about .reactApp #center_sec button:active:hover {
   transform: scale(0.95, 0.95);
 }
-#about .reactApp #right_sec {
+#about .reactApp #center_sec h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: auto;
+  align-self: center;
+}
+#about .reactApp #center_sec .icons {
+  align-content: bottom;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0% 5% 3%;
+  gap: 2vh 2rem;
+}
+#about .reactApp #center_sec .icons .img_holder {
   flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+#about .reactApp #center_sec .icons .img_holder .skill_label {
+  position: absolute;
+  transform: translateY(-150%);
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  color: black;
+  background-color: hsl(240deg, 30%, 50%);
+  border-radius: 0.3rem;
+  visibility: hidden;
+}
+#about .reactApp #center_sec .icons img {
+  width: 100%;
+  height: 100%;
+  max-width: 10vh;
+  max-height: 10vh;
+}
+#about .reactApp #center_sec .icons img:hover {
+  scale: 1.2;
 }
 
 #projects {
   width: 100%;
-  max-height: 100vh;
+  height: 100vh;
   scrollbar-color: hsl(200deg, 70%, 10%) hsl(200deg, 100%, 15%);
-  margin: 2% 0%;
-  padding: 0% 0%;
 }
 #projects > div.reactApp {
   -webkit-animation: fadeIn 0.6s normal;
           animation: fadeIn 0.6s normal;
-  overflow: auto scroll;
-  width: 100%;
+  overflow: auto auto;
   height: 100%;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  -moz-column-gap: 5%;
-       column-gap: 5%;
+  -moz-column-gap: 4%;
+       column-gap: 4%;
   row-gap: 3%;
+}
+#projects > div.reactApp .flex_container {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+}
+@media only screen and (max-width: 805px) {
+  #projects > div.reactApp {
+    flex-direction: column;
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+    row-gap: 0;
+    justify-content: center;
+    align-items: none;
+  }
+  #projects > div.reactApp .project {
+    max-width: 70%;
+    max-height: 100%;
+  }
+  #projects > div.reactApp .preview {
+    flex-grow: 0;
+  }
+  #projects > div.reactApp .preview > img {
+    max-width: 100%;
+  }
+  #projects > div.reactApp .tech {
+    max-height: 5vh;
+  }
 }
 #projects .project {
   display: flex;
-  flex: 1 1 1;
+  border: 1px solid red;
+  flex: 1 1 0;
   flex-direction: column;
   align-items: center;
-  max-width: 28vw;
-  aspect-ratio: 16/9;
-  border: 0.35rem hsla(0deg, 0%, 50%, 0.15) solid;
+  min-width: 16vw;
+  max-width: 22vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 0.35rem hsla(0deg, 0%, 0%, 0.7) solid;
   border-radius: 1.8%;
+  background-color: hsla(0deg, 0%, 100%, 0.03);
+  box-shadow: 0rem 0rem 1rem 0.25rem rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  /*
+  .tech {
+      display: flex;
+      justify-content: normal;
+      gap: 0.1rem;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 1.5rem;
+      >*{flex: 1 1 0;text-align: center;}
+  }
+  */
 }
 #projects .project .preview {
-  max-height: 100%;
-  max-width: 100%;
+  flex: 1 1 0;
+  position: relative;
+}
+#projects .project .preview img {
+  max-width: 22vw;
+  aspect-ratio: 16/9;
+  height: 100%;
+  width: 100%;
 }
 #projects .project .title {
   font-size: 2rem;
   font-weight: 600;
+  text-overflow: clip;
 }
 #projects .project .tech {
   display: flex;
-  justify-content: normal;
-  gap: 0.1rem;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 1.5rem;
+  max-height: 8vh;
+  margin: 1vh;
+  gap: 10%;
 }
-#projects .project .tech > * {
+#projects .project .tech .img_holder {
   flex: 1 1 0;
+}
+#projects .project .tech .img_holder img {
+  width: 100%;
+  height: 100%;
+}
+#projects .project:hover {
+  scale: 1.075 1.075;
+}
+#projects #popup {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: hsla(0deg, 0%, 0%, 0.7);
+}
+#projects #popup #close_bttn {
+  position: absolute;
+  right: 0%;
+  color: white;
+  font-size: 1.5rem;
+  background-color: transparent;
+}
+#projects #popup #container {
+  max-width: 80%;
+  display: flex;
+  align-self: center;
+  border: 0.6vw solid hsl(220deg, 80%, 10%);
+  border-radius: 0.6vw;
+  background-color: hsl(220deg, 80%, 10%);
+  -webkit-animation: fadeIn 0.25s ease;
+          animation: fadeIn 0.25s ease;
+}
+@media only screen and (max-width: 1188px) {
+  #projects #popup #container {
+    flex-direction: column;
+  }
+}
+#projects #popup #container #img_holder {
+  flex: 2 1 0;
+  border-radius: 0.3rem;
+  position: relative;
+}
+#projects #popup #container #img_holder img {
+  width: 100%;
+  height: 100%;
+}
+#projects #popup #container .text_container {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+#projects #popup #container .text_container #project_title {
   text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1vh 0rem;
+}
+#projects #popup #container .text_container #project_desc {
+  font-size: 1.5rem;
+  align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 90%;
+}
+#projects #popup #container .text_container #buttons {
+  margin-top: auto;
+  margin-bottom: 1vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+#projects #popup #container .text_container #buttons button {
+  padding: 0.4vh 1.75vw;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  border: 0.15rem solid hsla(0deg, 0%, 2%, 0.9);
+  background-color: hsla(0deg, 0%, 5%, 0.7);
+}
+#projects #popup #container .text_container #buttons button:first-child {
+  padding: 0.4vh 2.25vw;
+}
+#projects #popup #container .text_container #buttons button:hover {
+  cursor: pointer;
+  background-color: hsla(0deg, 0%, 10%, 0.4);
 }
 
 #contact {
@@ -183,17 +427,27 @@ body * {
 #contact .reactApp {
   -webkit-animation: fadeIn 1s normal;
           animation: fadeIn 1s normal;
+  padding: 0 2vw;
 }
 #contact h1 {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  align-self: center;
+}
+#contact #external {
+  display: flex;
 }
 #contact #links {
   display: flex;
   justify-content: center;
   gap: 5vw;
+  padding: 0 2vw 0 4vw;
 }
 #contact #links > div {
   position: relative;

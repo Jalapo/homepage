@@ -1,3 +1,5 @@
+var resizing = false;
+
 if (document.readyState !== 'loading') {start();} 
 else {document.addEventListener('DOMContentLoaded', () => {start();});}
 
@@ -119,36 +121,101 @@ function select(elm) {
 }
 
 function resize() {
-    console.log('attempt');
+    if (resizing) throw 'resizing';
+    resizing = true;
     switch (document.querySelector('.content')?.id) {
+        case 'about':
+            let center = document.querySelector('#center_sec');
+            let pageHeight = document.body.clientHeight;
+            
+            // check if button is below screen
+            let icon = center.querySelector('.icons>div:nth-child(1)');
+            let button = document.querySelector('#center_sec> button');
+            center.querySelectorAll("p").forEach(e=>e.style.fontSize='1.5rem');
+            let limit = 0.5;
+            let stop = false;
+            while (icon && icon.getBoundingClientRect().bottom > pageHeight) {
+                if (stop) break;
+                console.log('while loop');
+                // shrink font of each paragraph until button fits
+                center.querySelectorAll("p").forEach(e=>{
+                    let font = e.style.fontSize;
+                    if (font.split('rem')[0] - 0.1 > limit) {
+                        e.style.fontSize = font.split('rem')[0]-0.1 + 'rem';
+                    } else stop=true;
+                });
+            }
+            break;
+            // /*
         case 'projects':
             let smallestFont = 1.5;
             // save each project element into an array
             let projects = document.querySelectorAll(".project");
-            // loop over array
-            projects.forEach(p=>{
-                // change img width to 26.9% of screen
-                let newImgWidth = document.body.getBoundingClientRect().width * 0.269085
-                p.querySelector('img').width = newImgWidth;
-                p.querySelector('img').height = newImgWidth/(16/9);
 
-                // set tech section to initial font size
-                let techDiv = p.querySelector('div.tech');
-                techDiv.style.fontSize = '1.5rem'
+            // push all title sizes to array
+            let titleSizes = [];
+            projects.forEach(p=>{titleSizes.push(p.querySelector('.title').getBoundingClientRect().height)});
 
-                // compare size of each txt element to first txt element
-                let firstChild = techDiv.childNodes[0];
-                techDiv.childNodes.forEach(e=>{
-                    while (e.getBoundingClientRect().width != firstChild.getBoundingClientRect().width) {
-                        // shrink current font by 0.1rem if elements do not match in size
-                        newFont = techDiv.style.fontSize.split('rem')[0] - 0.1;
-                        techDiv.style.fontSize = newFont+"rem";
-                        // change smallestFont to newFont if newFront is smaller, otherwise do not change
-                        smallestFont = (newFont<smallestFont)? newFont:smallestFont;
+            // grab first title size and compare to all
+            let init=titleSizes[0];
+
+            // initialize vars for default font size (should be equal to css value, but will probably override it)
+            let font = 1.5;
+            projects.forEach(p=>{p.querySelector(".title").style.fontSize = '1.5rem'});
+
+            // check if difference between sizes of first title and iterated title is significant
+            for (let i in titleSizes) {
+                while (Math.abs(init-titleSizes[i]) > init*0.2) {
+                    // if so, adjust font size and set titles to new font
+                    console.log('init: ' + init);
+                    console.log(`#%d: %d`, i, titleSizes[i]);
+                    font-=0.1;
+                    // select each project
+                    for (let x=0;x<projects.length;x++) {
+                        let p = projects[x];
+                        // change the font size of the project title to the newly adjusted size and save to titleSizes array
+                        let title = p.querySelector(".title");
+                        title.style.fontSize = font+'rem';
+                        titleSizes[x] = title.getBoundingClientRect().height;
                     }
+                }
+                // set all project title sizes to new (or default) size
+                projects.forEach((p,x)=>{
+                    p.querySelector(".title").style.fontSize = font + 'rem';
+                    titleSizes[x] = p.querySelector(".title").getBoundingClientRect().height;
                 });
-            });
-            projects.forEach(p=>{p.querySelector('div.tech').style.fontSize=smallestFont+'rem'});
+                // ... and initial title size
+                init = titleSizes[0];
+            }
+            // prevent font size reverting from constant refreshing
+            if (font != 1.5) {
+                setTimeout(()=>{projects.forEach(p=>{p.querySelector(".title").style.fontSize = font+'rem'})},40);
+            }
         break;
+    }
+    // prevention of size reversion and over execution
+    setTimeout(()=>{resizing = false},10)
+}
+
+// handle hovering over skills on 'About' page
+function updateLabel(elm, action) {
+    // console.log(elm);
+    // action can be passed as [0,1] or ['hide','show']
+    if (typeof action == 'string') {
+        if (action == 'show' || action == 'hide') {
+            switch (action) {
+            case 'show': action = 1; break;
+            case 'hide': action = 0; break;
+            }
+        }
+    }
+    // if (action != 0 || action != 1) throw 'action input not valid';
+    // find label in passed element (img_holder)
+    let label = elm.querySelector(".skill_label");
+    if (label) {
+        switch (action) {
+            case 1: label.style.visibility = 'visible'; break;
+            case 0: label.style.visibility = 'hidden'; break;
+        }
     }
 }
