@@ -91,30 +91,31 @@ function initSidebarButtons() {
     function hoverButton(action, ev) {
         let selectedBttn = document.getElementById("sel");
         if (!selectedBttn) throw "No button selected";
-        // change color of selected button on 'hover' and 'hover leave'
+        // on hover of a different button, change currently selected button to default properties
         selectedBttn.style.backgroundColor = (action && selectedBttn!=ev.target) ? 'hsla(0deg,0%,50%,10%)' : '';
         selectedBttn.style.transform = (action && selectedBttn!=ev.target) ? 'translateX(-4rem)' : '';
     }
-    function select(elm) {
-        // unselect currently selected button if one exists
-        let sBttn = document.getElementById("sel");
-        if (sBttn) sBttn.id = sBttn.style.transform = sBttn.style.backgroundColor = '';
-        // select clicked button
-        elm.id = 'sel';
+}
 
-        //
-        let bttns = document.querySelectorAll("#sidebar>button");
-        let cDiv = document.querySelector(".content");
-        bttns.forEach((btn,index)=>{
-            //  change content page to match selected button
-            if (btn.id == "sel") {switch (index) {
-                case 0: cDiv.id='about'; break;
-                case 1: cDiv.id='projects'; break;
-                case 2: cDiv.id='contact'; break;
-            }}
-        });
-        reactRender(cDiv.id);
-    }
+function select(elm) {
+    // unselect currently selected button if one exists
+    let sBttn = document.getElementById("sel");
+    if (sBttn) sBttn.id = sBttn.style.transform = sBttn.style.backgroundColor = '';
+    // select clicked button
+    elm.id = 'sel';
+
+    //
+    let bttns = document.querySelectorAll("#sidebar>button");
+    let cDiv = document.querySelector(".content");
+    bttns.forEach((btn,index)=>{
+        //  change content page to match selected button
+        if (btn.id == "sel") {switch (index) {
+            case 0: cDiv.id='about'; break;
+            case 1: cDiv.id='projects'; break;
+            case 2: cDiv.id='contact'; break;
+        }}
+    });
+    reactRender(cDiv.id);
 }
 
 function resize() {

@@ -1,3 +1,19 @@
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
 html, body {
   width: 100%;
   height: 100vh;
@@ -43,26 +59,68 @@ body * {
 }
 #sidebar button#sel {
   background-color: hsla(0deg, 0%, 70%, 0.1);
-  transform: translateX(-1.75rem);
+  transform: translateX(-2rem);
 }
 #sidebar button:hover {
   background-color: hsla(0deg, 0%, 70%, 0.1);
   cursor: pointer;
-  transform: translateX(-1.75rem);
+  transform: translateX(-2rem);
 }
 
 .content {
   scroll-behavior: smooth;
   flex: 1 1 0;
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0deg, 0%, 88%);
 }
 
-#about {
+#about .reactApp {
+  -webkit-animation: fadeIn 2s ease-out;
+          animation: fadeIn 2s ease-out;
+  display: flex;
+  margin: 5% 0%;
+  padding: 0% 2%;
+}
+#about .reactApp #left_sec {
+  flex: 1 1 0;
+  margin-top: 30vh;
+}
+#about .reactApp #center_sec {
+  flex: 2 1 0;
+  display: flex;
+  flex-direction: column;
+}
+#about .reactApp #center_sec p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+#about .reactApp #center_sec h1 {
   text-align: center;
+}
+#about .reactApp #center_sec button {
+  margin-top: 1rem;
+  align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 2.5rem;
+  border-radius: 1.3rem;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(160, 160, 200);
+}
+#about .reactApp #center_sec button:hover {
+  background: rgba(20, 20, 20, 0.4);
+  cursor: pointer;
+}
+#about .reactApp #center_sec button:active:hover {
+  transform: scale(0.95, 0.95);
+}
+#about .reactApp #right_sec {
+  flex: 1 1 0;
 }
 
 #projects {
-  color: hsl(0deg, 0%, 85%);
   width: 100%;
   max-height: 100vh;
   scrollbar-color: hsl(200deg, 70%, 10%) hsl(200deg, 100%, 15%);
@@ -70,6 +128,8 @@ body * {
   padding: 0% 0%;
 }
 #projects > div.reactApp {
+  -webkit-animation: fadeIn 0.6s normal;
+          animation: fadeIn 0.6s normal;
   overflow: auto scroll;
   width: 100%;
   height: 100%;
@@ -116,8 +176,13 @@ body * {
 }
 
 #contact {
+  color: hsl(0deg, 0%, 60%);
   margin: 5% 0%;
   text-align: center;
+}
+#contact .reactApp {
+  -webkit-animation: fadeIn 1s normal;
+          animation: fadeIn 1s normal;
 }
 #contact h1 {
   -webkit-user-select: none;

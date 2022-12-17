@@ -1,3 +1,15 @@
+const aboutTxt = [
+    "I am a Software Engineer in the Southeastern region of the United States. "+
+    "I grew up in New Orleans, Louisiana, "+
+    "so I have always enjoyed trying new foods and seeing new places different from home. "+
+    "Growing up I loved playing video games, and I spend much of my free time "+
+    "in front of a computer or with new technology.",
+
+    "In 2021 I began learning Java and wrote a few simple applications. "+
+    "I picked up JavaScript in 2022, and began specializing in web development. "+
+    "Since then, I have developed a range of applications and webpages, "+
+    "and you may check them out by clicking Projects in the sidebar, or the button below."
+]
 const projInfo = new Map([
     ["color-test", {title:"Color Space Tool", tech:["HTML","CSS","JS"]}],
     ["circle-catcher", {title:"Circle Catcher", tech:["HTML","CSS","JS"]}],
@@ -9,10 +21,20 @@ const projInfo = new Map([
 const contactInfo = new Map([["gh","github.gif"],["ln","linkedin.gif"]]);
 
 function About() {
-  return React.createElement("h1", null, "Hi! I am Javen Porter");
+  return React.createElement("div", {className: "reactApp"},
+    React.createElement("div",{id:"left_sec"},
+        React.createElement("h3",{style:{textDecoration:'underline'}}, 'Tools I have worked with')
+    ),
+    React.createElement("div",{id:"center_sec"},
+        React.createElement("h1",null,'Hi! I am Javen Porter'),
+        React.createElement("p",null,aboutTxt[0]),
+        React.createElement("p",null, aboutTxt[1]),
+        React.createElement("button",{onClick:()=>{select(document.querySelector('#sidebar>button:nth-child(2)'))}},"View Projects")
+    ),
+    React.createElement("div",{id:"right_sec"})
+  );
 }
 const root = ReactDOM.createRoot(document.querySelector(".content"));
-// root.render( /*#__PURE__*/React.createElement(Projects, null));
 
 function reactRender(page) {
     switch (page) {
@@ -22,73 +44,13 @@ function reactRender(page) {
     }
 }
 
-/*
-function Projects() {
-    return (
-        <div>
-            <div class='project'>
-                <img class='preview' src='./img/color-test.png' />
-                <div class="title">Color Tool</div>
-                <div class="tech">HTML5 CSS JS</div>
-            </div>
-            <div class="project">
-                <img class="preview" src="./img/circle-catcher.png"/>
-                <div class="title">Circle Catcher</div>
-                <div class="tech">HTML CSS JS</div>
-            </div>
-            <div class="project">
-                <img class="preview" src="./img/savedlinks.png"/>
-                <div class="title">Saved Links</div>
-                <ul class="tech">
-                    <li>HTML</li>
-                    <li>SCSS</li>
-                    <li>TypeScript</li>
-                    <li>Node.js</li>
-                    <li>MySQL</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-*/
-
-/*
-function Projects() {
-  return React.createElement("div", {className: "reactApp"}, React.createElement("div", {
-      className: "project"
-  }, React.createElement("img", {
-      className: "preview",
-      src: "./img/color-test.png"
-  }), React.createElement("div", {
-      className: "title"
-  }, "Color Tool"), React.createElement("div", {
-      className: "tech"
-  }, "HTML5 CSS JS")), React.createElement("div", {
-      className: "project"
-  }, React.createElement("img", {
-      className: "preview",
-      src: "./img/circle-catcher.png"
-  }), React.createElement("div", {
-      className: "title"
-  }, "Circle Catcher"), React.createElement("div", {
-      className: "tech"
-  }, "HTML CSS JS")), React.createElement("div", {
-      className: "project"
-  }, React.createElement("img", {
-      className: "preview",
-      src: "./img/savedlinks.png"
-  }), React.createElement("div", {
-      className: "title"
-  }, "Saved Links"), React.createElement("ul", {
-      className: "tech"
-  }, React.createElement("li", null, "HTML"), React.createElement("li", null, "SCSS"), React.createElement("li", null, "TypeScript"), React.createElement("li", null, "Node.js"), React.createElement("li", null, "MySQL"))));
-}
-*/
 
 function Projects() {
     let projectNames = Array.from(projInfo.keys());
     let c = [];
-    for (let i in projectNames) c.push(React.createElement(project,{key: projectNames[i], projectName: projectNames[i]}));
+    for (let i in projectNames) c.push(
+        React.createElement(project,{key: projectNames[i], projectName: projectNames[i]})
+    );
     return React.createElement("div", {className: "reactApp", onLoad: resize}, c);
 }
 

@@ -1,3 +1,8 @@
+@keyframes fadeIn {
+    from {opacity: 0%;} 
+    to {opacity: 100%;}
+}
+
 html, body {
     width: 100%;
     height: 100vh;
@@ -39,33 +44,72 @@ body {
         width: fit-content;
         transition: transform 0.5s;
         &#sel{background-color: hsla(0deg,0%,70%,10%);
-            transform: translateX(-1.75rem);}
+            transform: translateX(-2rem);}
         &:hover {
             background-color: hsla(0deg,0%,70%,10%);
             cursor: pointer;
-            transform: translateX(-1.75rem);
+            transform: translateX(-2rem);
         }
     }
 }
 
 .content {
+    
     scroll-behavior: smooth;
     flex: 1 1 0;
-    color: hsl(0deg, 0%, 60%);
+    color: hsl(0deg, 0%, 88%);
 }
 
 #about {
-    text-align: center;
+    .reactApp {
+        animation: fadeIn 2s ease-out;
+        // border:1px solid rgba(255,255,255,5%);
+        display: flex;
+        // gap: 2rem;
+        margin: 5% 0%;
+        padding: 0% 2%;
+        #left_sec {
+            flex: 1 1 0;
+            margin-top: 30vh;
+        }
+        #center_sec {
+            flex: 2 1 0;
+            display: flex;
+            flex-direction: column;
+            p{font-size:1.5rem; font-weight: 600;}
+            h1{text-align:center;}
+            button {
+                margin-top: 1rem;
+                align-self: center;
+                width: fit-content;
+                padding: 0.75rem 2.5rem;
+                border-radius: 1.3rem;
+                background: rgba(0,0,0,0.25);
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: rgba(160,160,200,1);
+                &:hover{background:rgba(20,20,20,0.4); cursor: pointer;}
+                &:active:hover{transform:scale(0.95,0.95)}
+            }
+        }
+        #right_sec {
+            flex: 1 1 0;
+        }
+
+        
+        
+    }
 }
 
 #projects {
-    color: hsl(0deg, 0%, 85%);
+    
     width: 100%;
     max-height: 100vh;
     scrollbar-color: hsl(200deg, 70%, 10%) hsl(200deg, 100%, 15%);
     margin: 2% 0%;
     padding: 0% 0%;
     >div.reactApp {
+        animation: fadeIn 0.6s normal;
         overflow: auto scroll;
         width: 100%;
         height: 100%;
@@ -112,7 +156,8 @@ body {
 }
 
 #contact {
-    // border: 1px solid green;
+    .reactApp{animation: fadeIn 1s normal;}
+    color: hsl(0deg, 0%, 60%);
     margin: 5% 0%;
     text-align: center;
     h1{user-select:none;}
@@ -124,10 +169,6 @@ body {
             position: relative;
             height: 15vh;
             aspect-ratio: 1/1;
-            // background-image: url("./img/github.gif");
-            // background-size: 100% 100%;
-            // background-position: 0% 0%;
-            // border: 1px solid green;
             box-sizing: border-box;
             border-radius: 100%;
             padding: 0;
