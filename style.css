@@ -1,11 +1,3 @@
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
-}
 @keyframes fadeIn {
   from {
     opacity: 0%;
@@ -52,7 +44,6 @@ body * {
   background-color: hsla(0deg, 0%, 50%, 0.1);
   border: 0.125rem double hsla(0deg, 0%, 50%, 0.4);
   border-radius: 2rem;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   transition: transform 0.5s;
@@ -83,8 +74,7 @@ body * {
 #about .reactApp {
   width: 100%;
   height: 100%;
-  -webkit-animation: fadeIn 2s ease-out;
-          animation: fadeIn 2s ease-out;
+  animation: fadeIn 2s ease-out;
   border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   gap: 5%;
@@ -154,11 +144,23 @@ body * {
 }
 #about .reactApp #center_sec h1 {
   text-align: center;
+  margin: 0;
+  font-size: 3rem;
+}
+#about .reactApp #center_sec h2 {
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+}
+#about .reactApp #center_sec #subtext {
+  margin-bottom: auto;
+  margin: 0;
+  font-size: 2rem;
+  color: hsl(0deg, 0%, 40%);
 }
 #about .reactApp #center_sec button {
   margin-top: 1rem;
   align-self: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.75rem 2.5rem;
@@ -175,16 +177,11 @@ body * {
 #about .reactApp #center_sec button:active:hover {
   transform: scale(0.95, 0.95);
 }
-#about .reactApp #center_sec h2 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+#about .reactApp #center_sec #toolsText {
   margin-top: auto;
-  align-self: center;
 }
 #about .reactApp #center_sec .icons {
   align-content: bottom;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
@@ -225,8 +222,7 @@ body * {
   scrollbar-color: hsl(200deg, 70%, 10%) hsl(200deg, 100%, 15%);
 }
 #projects > div.reactApp {
-  -webkit-animation: fadeIn 0.6s normal;
-          animation: fadeIn 0.6s normal;
+  animation: fadeIn 0.6s normal;
   overflow: auto auto;
   height: 100%;
   position: relative;
@@ -274,7 +270,6 @@ body * {
   align-items: center;
   min-width: 16vw;
   max-width: 22vw;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   border: 0.35rem hsla(0deg, 0%, 0%, 0.7) solid;
@@ -284,7 +279,6 @@ body * {
   box-sizing: border-box;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   /*
   .tech {
@@ -343,7 +337,6 @@ body * {
   justify-content: center;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   background-color: hsla(0deg, 0%, 0%, 0.7);
 }
@@ -361,8 +354,7 @@ body * {
   border: 0.6vw solid hsl(220deg, 80%, 10%);
   border-radius: 0.6vw;
   background-color: hsl(220deg, 80%, 10%);
-  -webkit-animation: fadeIn 0.25s ease;
-          animation: fadeIn 0.25s ease;
+  animation: fadeIn 0.25s ease;
 }
 @media only screen and (max-width: 1188px) {
   #projects #popup #container {
@@ -392,7 +384,6 @@ body * {
 #projects #popup #container .text_container #project_desc {
   font-size: 1.5rem;
   align-self: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 90%;
@@ -425,16 +416,13 @@ body * {
   text-align: center;
 }
 #contact .reactApp {
-  -webkit-animation: fadeIn 1s normal;
-          animation: fadeIn 1s normal;
+  animation: fadeIn 1s normal;
   padding: 0 2vw;
 }
 #contact h1 {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin: 0;
@@ -473,7 +461,6 @@ body * {
   z-index: 1;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   cursor: default;
   transition: opacity 1s;

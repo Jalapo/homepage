@@ -1,25 +1,9 @@
-@-webkit-keyframes clickSucceed {
-  from {
-    background-color: inherit;
-  }
-  to {
-    background-color: hsl(120deg, 75%, 50%);
-  }
-}
 @keyframes clickSucceed {
   from {
     background-color: inherit;
   }
   to {
     background-color: hsl(120deg, 75%, 50%);
-  }
-}
-@-webkit-keyframes clickFail {
-  from {
-    background-color: inherit;
-  }
-  to {
-    background-color: hsl(0deg, 75%, 50%);
   }
 }
 @keyframes clickFail {

@@ -1,5 +1,5 @@
 const root = ReactDOM.createRoot(document.querySelector(".content"));
-const aboutTxt = [
+/*const aboutTxt = [
     "I am a Software Engineer in the Southeastern region of the United States. "+
     "I grew up in New Orleans, Louisiana, "+
     "so I have always enjoyed trying new foods and seeing new places different from home. "+
@@ -10,6 +10,15 @@ const aboutTxt = [
     "I picked up JavaScript in 2022, and began specializing in web development. "+
     "Since then, I have developed a range of applications and webpages, "+
     "and you may check them out by clicking Projects in the sidebar, or the button below."
+]*/
+const aboutTxt = [
+    "I am a web developer with experience in the most utilized technology powering web applications. " +
+    "I have built static and single page webpages, webpages with servers and databases powering them, " +
+    "and offline web applications that run on any device.",
+
+    "I have a catalog of projects to showcase both my frontend and backend skills, which you may access by clicking the button below. " +
+    "I have no trouble working in any area in the web development process, and I will always deliver " +
+    "neat software that is pleasant to read and pleasant to use."
 ]
 const projInfo = new Map([
     // ["color-test", {title:"Color Space Tool", tech:["HTML","CSS","JS"]}],
@@ -67,12 +76,13 @@ function About() {
     // React.createElement("div",{id:"left_sec"}),
 
     React.createElement("div",{id:"center_sec"},
-        React.createElement("h1",null,'Hi! I am Javen Porter'),
+        React.createElement("h1",null,'Javen Porter'),
+        React.createElement("h2",{id:"subtext"},'Web Developer'),
         React.createElement("p",null,aboutTxt[0]),
         React.createElement("p",null,aboutTxt[1]),
         React.createElement("button",{onClick:()=>{select(document.querySelector('#sidebar>button:nth-child(2)'))}},"View Projects"),
 
-        React.createElement("h2",null, 'Tools I have worked with'),
+        React.createElement("h2",{id:"toolsText"}, 'Tools I have worked with'),
         React.createElement("div",{className: 'icons'}, Imgs)
     ),
 

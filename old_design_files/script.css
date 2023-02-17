@@ -1,25 +1,9 @@
-@-webkit-keyframes loadFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes loadFade {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
-  }
-}
-@-webkit-keyframes showProjects {
-  from {
-    height: 0;
-  }
-  to {
-    height: inherit;
   }
 }
 @keyframes showProjects {
@@ -30,37 +14,12 @@
     height: inherit;
   }
 }
-@-webkit-keyframes hideProjects {
-  from {
-    height: inherit;
-  }
-  to {
-    height: 0;
-  }
-}
 @keyframes hideProjects {
   from {
     height: inherit;
   }
   to {
     height: 0;
-  }
-}
-@-webkit-keyframes animateBG {
-  0% {
-    background-position-x: 0%;
-  }
-  25% {
-    background-position-x: 50%;
-  }
-  50% {
-    background-position-x: 95%;
-  }
-  75% {
-    background-position-x: 50%;
-  }
-  100% {
-    background-position-x: 0%;
   }
 }
 @keyframes animateBG {
@@ -96,10 +55,8 @@ html body {
   width: 100%;
   background: linear-gradient(to right, hsl(200deg, 100%, 4%), hsl(280deg, 100%, 4%));
   background-size: 300% 300%;
-  -webkit-animation: animateBG infinite;
-          animation: animateBG infinite;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  animation: animateBG infinite;
+  animation-duration: 10s;
 }
 
 #canv-shield {
@@ -208,22 +165,16 @@ header #adminLogin.hidden {
   background-image: linear-gradient(to bottom right, #3333ff, #b152e0);
 }
 .top > div {
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-duration: 2.5s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
 }
 .top > div[class=flex-container] {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 
 .projects {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -412,18 +363,12 @@ header #adminLogin.hidden {
   transform: translate(-50%, -50%);
 }
 .projects.unhidden, .projects *.unhidden {
-  -webkit-animation-name: showProjects;
-          animation-name: showProjects;
-  -webkit-animation-duration: 0.8s;
-          animation-duration: 0.8s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: showProjects;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
 }
 .projects.hidden, .projects *.hidden {
-  -webkit-animation-name: hideProjects;
-          animation-name: hideProjects;
-  -webkit-animation-duration: 0.8s;
-          animation-duration: 0.8s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
+  animation-name: hideProjects;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
 }/*# sourceMappingURL=script.css.map */

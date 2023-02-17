@@ -83,7 +83,9 @@ body {
             display: flex;
             flex-direction: column;
             p{font-size:1.5rem; font-weight: 600; width: 60%; align-self: center;}
-            h1{text-align:center;}
+            h1{text-align:center; margin: 0; font-size: 3rem;}
+            h2{width: fit-content; align-self: center;}
+            #subtext{margin-bottom: auto; margin: 0; font-size: 2rem; color: hsl(0, 0%, 40%); }
             button {
                 margin-top: 1rem;
                 align-self: center;
@@ -97,8 +99,8 @@ body {
                 &:hover{background:rgba(20,20,20,0.4); cursor: pointer;}
                 &:active:hover{transform:scale(0.95,0.95)}
             }
-
-            h2{width:fit-content;margin-top:auto;align-self:center;}
+            #toolsText{margin-top:auto;}
+            
             .icons {
                 align-content: bottom;
                 
