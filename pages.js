@@ -49,7 +49,7 @@ const projInfo = new Map([
     // ["1", {title:"1", tech:["HTML","SCSS","TypeScript","Node.js"]}],
     // ["2", {title:"Saved Links", tech:["HTML","SCSS","TypeScript","Node.js","MySQL"]}],
 ]);
-const contactInfo = new Map([["gh","github.gif"],["ln","linkedin.gif"]]);
+const contactInfo = new Map([["gh","github.gif"],["ln","linkedin.gif"],["em","email.gif"]]);
 const iconLinks = new Map([["_dir", "./img/tools/"],
     ["JavaScript","javascript.svg"],["jQuery","jquery.svg"],["Node.js","nodejs.svg"],
     ["React","react.svg"],["HTML","html.svg"],["CSS","css.svg"],
