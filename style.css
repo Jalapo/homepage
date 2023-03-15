@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(to top, hsl(220deg, 100%, 10%), hsl(280deg, 100%, 5%));
+  background: linear-gradient(to top, hsl(220, 100%, 10%), hsl(280, 100%, 5%));
   display: flex;
   overflow: hidden;
 }
@@ -23,7 +23,7 @@ body * {
 }
 
 #sidebar {
-  border: 0.25rem solid hsla(0deg, 0%, 0%, 0.6);
+  border: 0.25rem solid hsla(0, 0%, 0%, 0.6);
   border-top: 0px;
   border-bottom: 0px;
   border-left: 0px;
@@ -32,36 +32,43 @@ body * {
   gap: 2rem;
   display: flex;
   flex-direction: column;
+  width: 35vw;
+  max-width: 300px;
+  transform: translateX(-1.5rem);
+}
+@media only screen and (max-width: 820px) {
+  #sidebar {
+    position: absolute;
+    visibility: hidden;
+  }
 }
 #sidebar button {
-  flex: 0 1 1;
+  text-align: right;
   font-weight: 700;
-  font-size: 1.4rem;
-  color: hsl(0deg, 0%, 70%);
+  font-size: min(1.4rem, 2vw);
+  color: hsl(0, 0%, 70%);
   padding: 1rem 4rem;
   padding: 1rem 6rem 1rem 6rem;
   transform: translateX(-4rem);
-  background-color: hsla(0deg, 0%, 50%, 0.1);
-  border: 0.125rem double hsla(0deg, 0%, 50%, 0.4);
+  background-color: hsla(0, 0%, 50%, 0.1);
+  border: 0.125rem double hsla(0, 0%, 50%, 0.4);
   border-radius: 2rem;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   transition: transform 0.5s;
 }
 #sidebar button#sel {
-  background-color: hsla(0deg, 0%, 70%, 0.1);
-  transform: translateX(-2rem);
+  background-color: hsla(0, 0%, 70%, 0.1);
+  transform: translateX(-3rem);
 }
 #sidebar button:hover {
-  background-color: hsla(0deg, 0%, 70%, 0.1);
+  background-color: hsla(0, 0%, 70%, 0.1);
   cursor: pointer;
-  transform: translateX(-2rem);
+  transform: translateX(-3rem);
 }
 
 .content {
   scroll-behavior: smooth;
-  flex: 1 1 0;
-  color: hsl(0deg, 0%, 88%);
+  color: hsl(0, 0%, 88%);
 }
 .content .no_sel {
   position: absolute;
@@ -75,9 +82,7 @@ body * {
   width: 100%;
   height: 100%;
   animation: fadeIn 2s ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
-  gap: 5%;
   /*#left_sec {
       // border: 1px solid red;
       flex: 1 1 0;
@@ -132,20 +137,20 @@ body * {
   } */
 }
 #about .reactApp #center_sec {
-  flex: 4 1 0;
   display: flex;
   flex-direction: column;
 }
 #about .reactApp #center_sec p {
-  font-size: 1.5rem;
+  font-size: 2.5vh;
   font-weight: 600;
-  width: 60%;
+  max-width: clamp(50%, 800px, 95%);
   align-self: center;
+  text-align: center;
 }
 #about .reactApp #center_sec h1 {
   text-align: center;
   margin: 0;
-  font-size: 3rem;
+  font-size: 6vh;
 }
 #about .reactApp #center_sec h2 {
   width: -moz-fit-content;
@@ -155,8 +160,8 @@ body * {
 #about .reactApp #center_sec #subtext {
   margin-bottom: auto;
   margin: 0;
-  font-size: 2rem;
-  color: hsl(0deg, 0%, 40%);
+  font-size: 4vh;
+  color: hsl(0, 0%, 40%);
 }
 #about .reactApp #center_sec button {
   margin-top: 1rem;
@@ -202,7 +207,7 @@ body * {
   padding: 0 1rem;
   font-size: 1.5rem;
   color: black;
-  background-color: hsl(240deg, 30%, 50%);
+  background-color: hsl(240, 30%, 50%);
   border-radius: 0.3rem;
   visibility: hidden;
 }
@@ -219,7 +224,7 @@ body * {
 #projects {
   width: 100%;
   height: 100vh;
-  scrollbar-color: hsl(200deg, 70%, 10%) hsl(200deg, 100%, 15%);
+  scrollbar-color: hsl(200, 70%, 10%) hsl(200, 100%, 15%);
 }
 #projects > div.reactApp {
   animation: fadeIn 0.6s normal;
@@ -272,9 +277,9 @@ body * {
   max-width: 22vw;
   height: -moz-fit-content;
   height: fit-content;
-  border: 0.35rem hsla(0deg, 0%, 0%, 0.7) solid;
+  border: 0.35rem hsla(0, 0%, 0%, 0.7) solid;
   border-radius: 1.8%;
-  background-color: hsla(0deg, 0%, 100%, 0.03);
+  background-color: hsla(0, 0%, 100%, 0.03);
   box-shadow: 0rem 0rem 1rem 0.25rem rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
   -webkit-user-select: none;
@@ -338,7 +343,7 @@ body * {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  background-color: hsla(0deg, 0%, 0%, 0.7);
+  background-color: hsla(0, 0%, 0%, 0.7);
 }
 #projects #popup #close_bttn {
   position: absolute;
@@ -351,9 +356,9 @@ body * {
   max-width: 80%;
   display: flex;
   align-self: center;
-  border: 0.6vw solid hsl(220deg, 80%, 10%);
+  border: 0.6vw solid hsl(220, 80%, 10%);
   border-radius: 0.6vw;
-  background-color: hsl(220deg, 80%, 10%);
+  background-color: hsl(220, 80%, 10%);
   animation: fadeIn 0.25s ease;
 }
 @media only screen and (max-width: 1188px) {
@@ -399,19 +404,19 @@ body * {
   font-size: 1.5rem;
   border-radius: 1rem;
   color: white;
-  border: 0.15rem solid hsla(0deg, 0%, 2%, 0.9);
-  background-color: hsla(0deg, 0%, 5%, 0.7);
+  border: 0.15rem solid hsla(0, 0%, 2%, 0.9);
+  background-color: hsla(0, 0%, 5%, 0.7);
 }
 #projects #popup #container .text_container #buttons button:first-child {
   padding: 0.4vh 2.25vw;
 }
 #projects #popup #container .text_container #buttons button:hover {
   cursor: pointer;
-  background-color: hsla(0deg, 0%, 10%, 0.4);
+  background-color: hsla(0, 0%, 10%, 0.4);
 }
 
 #contact {
-  color: hsl(0deg, 0%, 60%);
+  color: hsl(0, 0%, 60%);
   margin: 5% 0%;
   text-align: center;
 }
@@ -491,16 +496,16 @@ body * {
 }
 
 ::-webkit-scrollbar-track {
-  background: linear-gradient(to bottom, hsl(220deg, 100%, 10%), hsl(280deg, 100%, 5%));
+  background: linear-gradient(to bottom, hsl(220, 100%, 10%), hsl(280, 100%, 5%));
   border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, hsl(220deg, 100%, 8%), hsl(280deg, 100%, 7%));
+  background: linear-gradient(to bottom, hsl(220, 100%, 8%), hsl(280, 100%, 7%));
   border: 1px solid black;
   border-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(200deg, 100%, 2%);
+  background: hsl(200, 100%, 2%);
 }/*# sourceMappingURL=style.css.map */

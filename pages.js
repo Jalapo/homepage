@@ -18,7 +18,7 @@ const aboutTxt = [
 
     "I have a catalog of projects to showcase both my frontend and backend skills, which you may access by clicking the button below. " +
     "I have no trouble working in any area in the web development process, and I will always deliver " +
-    "neat software that is pleasant to read and pleasant to use."
+    "software which is pleasant to use and fulfills your needs."
 ]
 const projInfo = new Map([
     // ["color-test", {title:"Color Space Tool", tech:["HTML","CSS","JS"]}],

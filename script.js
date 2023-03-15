@@ -129,9 +129,9 @@ function resize() {
             let pageHeight = document.body.clientHeight;
             
             // check if button is below screen
-            let icon = center.querySelector('.icons>div:nth-child(1)');
+            /*let icon = center.querySelector('.icons>div:nth-child(1)');
             let button = document.querySelector('#center_sec> button');
-            center.querySelectorAll("p").forEach(e=>e.style.fontSize='1.5rem');
+            center.querySelectorAll("p").forEach(e=>e.style.fontSize='5rem');
             let limit = 0.5;
             let stop = false;
             while (icon && icon.getBoundingClientRect().bottom > pageHeight) {
@@ -145,7 +145,7 @@ function resize() {
                     } else stop=true;
                 });
             }
-            break;
+            break; */
             // /*
         case 'projects':
             let smallestFont = 1.5;

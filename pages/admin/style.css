@@ -3,7 +3,7 @@
     background-color: inherit;
   }
   to {
-    background-color: hsl(120deg, 75%, 50%);
+    background-color: hsl(120, 75%, 50%);
   }
 }
 @keyframes clickFail {
@@ -11,7 +11,7 @@
     background-color: inherit;
   }
   to {
-    background-color: hsl(0deg, 75%, 50%);
+    background-color: hsl(0, 75%, 50%);
   }
 }
 body {
